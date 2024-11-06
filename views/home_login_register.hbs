@@ -9,7 +9,7 @@
 <body style="margin: 0px;">
 <div class="container">
     <div class="navigation">
-        <p class="logo">East$eaBank</p>
+        <p class="navigation__logo">East$eaBank</p>
         <ul>
             <li><a href="#">Sản phẩm & dịch vụ</a></li>
             <li><a href="#">Công cụ & Tiện ích</a></li>
@@ -18,39 +18,114 @@
         </ul>
     </div>
     <div class="thumbnail">
-        <div class="thumbnail_left_component">
+        <div class="thumbnail__content">
             <span style="font-size: 60px;font-weight: bold">Tiết kiệm và vay vốn ưu đãi </span>
             <p style="font-size: 30px; margin-top:20px; font-weight: bold">Tìm kiếm điều bạn muốn!</p>
-            <div class="searchBarContainer">
+            <div class="thumbnail__content__search">
                 <img src="images/search-interface-symbol.png"
                      style="width: 53px;height: 53px; margin-left: 1px; margin-top: 2px">
                 <input type="text" class="searchInput" onclick="">
             </div>
-            <button class="log">
+            <button class="button button--log">
                 Đăng nhập
             </button>
-            <button class="log">
+            <button class="button button--log">
                 Đăng ký
             </button>
         </div>
         <img src="images/sea-waves.png" style="width: 600px; height: 540px">
     </div>
-    <div class="navigationService">
-        <ul>
-            <li>
-                <a>Sổ tiết kiệm</a>
-            </li>
-            <li>
-                <a>Vay Vốn</a>
-            </li>
-            <li>
-                <a>Bảo hiểm</a>
-            </li>
-            <li>
-                <a> Số đẹp</a>
-            </li>
-        </ul>
+    <div class="content-container">
+        <div class="content-container__navigation-service">
+            <ul>
+                <li>
+                    <a>Sổ tiết kiệm</a>
+                </li>
+                <li>
+                    <a>Vay Vốn</a>
+                </li>
+                <li>
+                    <a>Bảo hiểm</a>
+                </li>
+                <li>
+                    <a> Số đẹp</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content-container__section">
+            <img src="images/piggy-bank.png">
+            <div class="content-container__section__saving">
+                <p>Sổ tiết kiệm</p>
+                <p class="content-container__section__title">Nâng tâm giá trị số tiền nhàn rỗi của bạn </p>
+                <p class="content-container__section__text">Chúng tôi cung cấp một loạt các gói gửi tiết kiệm đa dạng,
+                    phù hợp với nhiều nhu cầu tài chính khác nhau,
+                    từ ngắn hạn đến dài hạn. Khách hàng có thể dễ dàng lựa chọn
+                    các sản phẩm phù hợp với điều kiện cá nhân,
+                    đồng thời tận dụng được sự linh hoạt trong lãi suất và kỳ hạn gửi
+                    , giúp tối ưu hóa lợi nhuận và kế hoạch tài chính của mình.</p>
+                <button class="button btn--info">
+                    Xem thêm
+                </button>
+            </div>
+        </div>
+        <div class="content-container__section">
+            <div class="content-container__section__borrowing">
+                <p>Vay vốn</p>
+                <p class="content-container__section__title">Bạn cần tiền để bắt đầu xây dựng một doanh nghiệp? </p>
+                <p class="content-container__section__text">Chúng tôi cung cấp nhiều gói vay vốn linh hoạt,
+                    đáp ứng nhu cầu tài chính từ cá nhân đến doanh nghiệp. Các hình thức vay như tín chấp,
+                    thế chấp, và vay tiêu dùng được thiết kế với lãi suất hợp lý, mang lại lợi ích tối đa cho khách
+                    hàng.
+                    Quá trình xét duyệt và giải ngân nhanh chóng, giúp đáp ứng nhu cầu tài chính kịp thời.
+                    Đội ngũ tư vấn luôn sẵn sàng hỗ trợ, giúp khách hàng lựa chọn giải pháp vay phù hợp nhất,
+                    đảm bảo quyền lợi và tối ưu hóa lợi nhuận.</p>
+                <button class="button btn--info">
+                    Xem thêm
+                </button>
+            </div>
+            <img src="images/loan.png">
+        </div>
+        <div class="content-container__section">
+            <img src="images/document.png">
+            <div class="content-container__section__insurance">
+                <p>Bảo hiểm</p>
+                <p class="content-container__section__title">Cung cấp các gói bảo hiểm từ bên thứ ba </p>
+                <p class="content-container__section__text">Chúng tôi cung cấp các gói bảo hiểm từ các đối tác bên
+                    thứ ba uy tín, mang lại sự bảo vệ toàn diện cho khách hàng.
+                    Với các giải pháp bảo hiểm chất lượng cao và chi phí hợp lý,
+                    khách hàng có thể yên tâm lựa chọn phù hợp với nhu cầu của mình.
+                    Đội ngũ chuyên gia luôn sẵn sàng hỗ trợ tư vấn, đảm bảo khách hàng được
+                    hưởng những quyền lợi tối ưu khi sử dụng dịch vụ bảo hiểm.</p>
+                <button class="button btn--info">
+                    Xem thêm
+                </button>
+            </div>
+        </div>
+        <div class="content-container__section">
+            <div class="content-container__section__beauty-number">
+                <p>Tài khoản số đẹp</p>
+                <p class="content-container__section__title">Tạo số tài khoản như ý</p>
+                <p class="content-container__section__text">Chúng tôi cung cấp dịch vụ tạo tài khoản số đẹp,
+                    cho phép khách hàng lựa chọn số tài khoản theo ý muốn.
+                    Những số tài khoản này mang ý nghĩa phong thủy,
+                    thể hiện sự may mắn, tài lộc và dễ ghi nhớ. Dịch vụ linh hoạt,
+                    phù hợp với nhu cầu cá nhân hoặc doanh nghiệp, giúp tạo dấu ấn riêng biệt.
+                    Khách hàng có thể chọn số tài khoản đẹp qua quy trình đơn giản, nhanh chóng, và thuận tiện.</p>
+                <button class="button btn--info">
+                    Xem thêm
+                </button>
+            </div>
+            <img src="images/premium-account.png">
+        </div>
+        <div class="content-container__slogan">
+            <p class="content-container__slogan__text">EastSeaBank<br>
+                Tiền nhiều như nước biển đông
+            </p>
+            <button class="button button--start">Bắt đầu</button>
+        </div>
     </div>
+
+
 </div>
 
 </body>
