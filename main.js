@@ -25,7 +25,7 @@ app.use(express.static('./public'));
 
 // Home page routing
 app.get('/', function (req, res) {
-    res.render('home_login_register',{
+    res.render('sign-in/step-2',{
         layout:false
     });
 });

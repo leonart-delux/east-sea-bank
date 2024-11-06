@@ -87,7 +87,7 @@
     border: none; /* Đảm bảo không có viền border khi focus */
 }
 
-.button {
+.container__form__button {
     width: 35%;
     height: 40px;
     border-radius: 20px;
@@ -101,7 +101,7 @@
     margin-right: 15px;
 }
 
-.button:hover {
+.container__form__button:hover {
     background-color: #1E7BB6;
 }
 
