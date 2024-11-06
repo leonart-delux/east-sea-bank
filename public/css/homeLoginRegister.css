@@ -1,13 +1,18 @@
 .container{
-    width: 86%;
+    width: 80%;
     border: 2px solid red;
     margin:auto;
+    font-family: 'Baloo 2', cursive;
 }
 .navigation{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top:10px;
+}
+.logo {
+    font-weight: bold;
+    font-size: 50px;
 }
 .navigation li{
     display: inline-block;
@@ -18,6 +23,7 @@
     text-decoration: none;
     font-weight: bold;
     color: red;
+    font-size: 20px;
 }
 .navigation ul{
     list-style-type: none;
@@ -82,5 +88,35 @@
 }
 .log:hover{
     background-color: #1E7BB6;
+}
+.navigationService{
+    background-color: #134B70;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    height: 60px;
+}
+.navigationService ul {
+    width: 100%;
+    list-style-type: none;
+    padding: 0px;
+    height: 100%;
+    margin: 0px;
+    display: flex;
+}
+.navigationService ul li {
+    flex: 1;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.navigationService a {
+}
+.navigationService li:hover{
+    background-color: red;
+    border-radius: 10px;
 }
 
