@@ -5,7 +5,7 @@
     font-family: 'Baloo 2', cursive;
 }
 
-.navigation {
+.content-container__navigation {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,26 +17,26 @@
     font-size: 50px;
 }
 
-.navigation li {
+.content-container__navigation li {
     display: inline-block;
     margin-left: 20px;
 
 }
 
-.navigation li a {
+.content-container__navigation li a {
     text-decoration: none;
     font-weight: bold;
     color: red;
     font-size: 20px;
 }
 
-.navigation ul {
+.content-container__navigation ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.thumbnail {
+.content-container__thumbnail {
     border: 2px solid red;
     margin-top: 30px;
     display: flex;
@@ -147,6 +147,7 @@
     display: flex;
     flex-direction: row;
     margin-top: 40px;
+    justify-content: space-between;
 }
 
 .btn--info {
@@ -194,15 +195,64 @@
     color: #FFFFFF;
     text-align: center;
     padding-top: 70px;
-    align-items: center;
 }
 
 .button--start {
-    width: 200px;
+    width: 220px;
     color: #FFFFFF;
     background-color: black;
     font-weight: bold;
     font-size: 17px;
-    display: block;
     margin: 20px auto auto;
+    border-radius: 10px;
 }
+
+.content-container__section--max-width {
+    max-width: 650px;
+}
+
+.content-container__footer {
+    margin-top: 100px;
+}
+
+.content-container__footer img {
+    width: 32px;
+    height: 32px;
+}
+
+.content-container__footer a {
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: 8px;
+}
+
+.content-container__footer__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.content-container__footer__first-line-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.content-container__footer__second-line-info {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.content-container__footer__first-line-info__logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*.content-container__footer div {*/
+/*    display: flex;*/
+/*    flex-direction: row ;*/
+/*    align-items: center; !* Căn giữa các phần tử con theo chiều ngang *! }*/
