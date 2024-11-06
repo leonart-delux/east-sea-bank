@@ -1,0 +1,86 @@
+.container{
+    width: 86%;
+    border: 2px solid red;
+    margin:auto;
+}
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top:10px;
+}
+.navigation li{
+    display: inline-block;
+    margin-left: 20px;
+
+}
+.navigation li a{
+    text-decoration: none;
+    font-weight: bold;
+    color: red;
+}
+.navigation ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.thumbnail{
+    border: 2px solid red;
+    margin-top:30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.thumbnail_left_component{
+    margin-top: 100px;
+    max-width: 510px;
+    word-wrap: break-word; /* Cho phép xuống hàng */
+    overflow: hidden;
+    margin-right: 100px;
+}
+.searchBarContainer{
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-color: #508C9B;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    width: 505px;
+    height: 68px;
+}
+.searchBarContainer:focus-within {
+    border: 2px solid red; /* Viền khi input được focus */
+}
+.searchInput {
+    border: none;
+    width: 100%;
+    background: transparent;
+    font-size: 35px;
+    margin-left: 5px;
+    height: 53px;
+    line-height: 100px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+}
+.searchInput:focus {
+    outline: none; /* Loại bỏ viền khi focus */
+    border: none; /* Đảm bảo không có viền border khi focus */
+}
+
+.log {
+    margin-top: 20px;
+    width: 35%;
+    height: 40px;
+    border-radius: 20px;
+    border: transparent;
+    margin-right: 15px;
+    background-color: #134B70;
+    color: #FFFFFF;
+}
+.log:hover{
+    background-color: #1E7BB6;
+}
+

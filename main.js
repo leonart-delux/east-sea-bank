@@ -1,7 +1,20 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
+import livereload from 'livereload';
+import connectLiveReload from 'connect-livereload'
+
+const liveReloadServer = livereload.createServer();
+liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+        liveReloadServer.refresh("/");
+    }, 1);
+});
 
 const app = express();
+
+app.use('/images', express.static('images'));
+
+app.use(connectLiveReload());
 
 app.engine('hbs', engine({
     extname: 'hbs',
@@ -12,7 +25,9 @@ app.use(express.static('./public'));
 
 // Home page routing
 app.get('/', function (req, res) {
-    res.render('home');
+    res.render('home_login_register',{
+        layout:false
+    });
 });
 
 // Log in routing
