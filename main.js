@@ -1,5 +1,6 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
+import path from 'path';
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', './views');
 app.use(express.static('./public'));
+app.use('/images', express.static('images'));
 
 // Home page routing
 app.get('/', function (req, res) {
