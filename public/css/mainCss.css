@@ -1,0 +1,69 @@
+.custom-header {
+    background-color: #201E43; 
+    padding: 10px;
+    color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.image-container {
+    width: 100%;               
+    height: 450px;
+    background-image: url('/images/hill.png');
+    background-size: cover;    
+    background-position: center; 
+}
+
+.body {
+    padding-bottom: 150px;        
+    background-color: #201E43; 
+    color: white;               
+}
+
+.footer {
+    background-color: #201E43; 
+    padding: 50px;
+    color: white;
+    padding-bottom: 0px;
+}
+
+
+/* header */
+.greeting-container {
+    margin: auto 0;
+}
+  
+.greeting-text {
+    font-size: 12px;
+    font: Arial;
+    margin: 0;
+}
+  
+.greeting-name {
+    font-weight: 800;
+    margin: 0;
+}
+
+/* footer */
+.eastseabank-title {
+    color: #9ba1da;
+    font: 600 23px/1.3 sans-serif;
+    align-self: stretch;
+    flex-grow: 1;
+    width: 177px;
+}
+
+.icon-text {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.icon-img {
+    width: 20px;
+    height: 20px; 
+    margin-right: 8px; 
+}
