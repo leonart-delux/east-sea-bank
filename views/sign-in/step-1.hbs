@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Step 1 </title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="container">
+    <p class="container__logo">EastSeaBank</p>
+    <p class="container__greet">Xin kính chào quý khách</p>
+
+    <form style="display: flex; justify-content: center">
+        <div class="container__form">
+            <label class="container__form__label" for="fullName">Họ và tên</label>
+            <input class="container__form__input " type="text" id="fullName" name="fullName" required>
+            <label class="container__form__label" for="phoneNumber">Số điện thoại</label>
+            <input class="container__form__input  " type="text" id="phoneNumber"
+                   name="phoneNumber" required>
+            <div class="container__form__otp">
+                <button class="container__form__button button--send-OTP">
+                    Gửi OTP
+                </button>
+                <input class="container__form__input container__form__input--otp" type="text" id="certificationCode"
+                       name="certificationCode" required placeholder="Nhập mã OTP">
+            </div>
+            <button class="container__form__button button--login">
+                Tiếp Tục
+            </button>
+            <p style="margin-top: 10px"> Đã có tài khoản? <a href="#">Đăng nhập </a></p>
+
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
