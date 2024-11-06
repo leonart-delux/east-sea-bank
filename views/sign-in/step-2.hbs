@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Step 1 </title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/checkbox.css">
+</head>
+<body>
+<div class="container">
+    <p class="container__title">Thông tin đăng ký tài khoản </p>
+    <form style="display: flex; justify-content: center">
+        <div class="container__form">
+            <p class="container__guide">(*)Vui lòng điền đúng thông tin cá nhân của bạn trên giấy tờ tùy thân</p>
+            <label class="container__form__label" for="CCCD">CCCD</label>
+            <input class="container__form__input " value="045204999232" type="text" id="CCCD" name="CCCD" required>
+            <label class="container__form__label" for="issuedDate">Ngày cấp</label>
+            <input class="container__form__input" value="15/09/2023" type="text" id="issuedDate"
+                   name="issuedDate" required>
+            <label class="container__form__label" for="issuedAddress">Nơi cấp</label>
+            <input class="container__form__input  " value="Quang Tri" type="text" id="issuedAddress"
+                   name="issuedAddress" required>
+            <label class="container__form__label" for="dob">Ngày tháng năm sinh</label>
+            <input class="container__form__input  " type="text" id="dob" value="15/09/2004"
+                   name="dob" required>
+            <label class="container__form__label" for="sex">Giới tính</label>
+            <select class="container__form__input">
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+            </select>
+            <label class="container__form__label" for="nationality">Quốc tịch</label>
+            <input class="container__form__input" type="text" id="nationality"
+                   name="nationality" required value="Viet Nam">
+            <label class="container__form__label" for="homeTown">Quê quán</label>
+            <input class="container__form__input" type="text" id="homeTown"
+                   name="homeTown" required value="Quang Tri">
+            <label class="container__form__label" for="contemptAddress">Địa chỉ thường trú</label>
+            <input class="container__form__input" type="text" id="contemptAddress"
+                   name="contemptAddress" required value="Di An Binh Duong">
+            <label class="container__form__label" for="contactAddress">Địa chỉ liên hệ</label>
+            <input class="container__form__input" type="text" id="contactAddress"
+                   name="contactAddress" required value="Di An Binh Duong">
+            <label class="container__form__label" for="contactAddress">Địa chỉ liên hệ</label>
+            <input class="container__form__input" type="email" id="contactAddress"
+                   name="contactAddress" required value="Nguyentruongpro19@gmail.com">
+            <label class="container__form__label" for="contactAddress">Mặt trước CCCD</label>
+            <button class="container__form__button button--send-image">
+            </button>
+            <label class="container__form__label" for="contactAddress">Mặt sau CCCD</label>
+            <button class="container__form__button button--send-image">
+            </button>
+            <div class="container__form__policy">
+                <div class="round">
+                    <input type="checkbox" checked id="checkbox" />
+                    <label for="checkbox"></label>
+                </div>
+<!--                <img src="images/checklist.png" style="width: 25px; height: 25px">-->
+                <p style="text-align: left; margin-left: 20px">Tôi đồng ý với các <a href="#">điều khoản</a> và <a href="#">chính sách</a> của ngân hàng</p>
+            </div>
+            <button class="container__form__button button--login">
+                Xác nhận
+            </button>
+
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
