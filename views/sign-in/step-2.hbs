@@ -10,24 +10,25 @@
 <body>
 <div class="container">
     <p class="container__title">Thông tin đăng ký tài khoản </p>
-    <form style="display: flex; justify-content: center">
+    <form style="display: flex; justify-content: center" method="post" action="">
         <div class="container__form">
             <p class="container__guide">(*)Vui lòng điền đúng thông tin cá nhân của bạn trên giấy tờ tùy thân</p>
-            <label class="container__form__label" for="CCCD">CCCD</label>
-            <input class="container__form__input " value="045204999232" type="text" id="CCCD" name="CCCD" required>
+            <label class="container__form__label" for="cccd">CCCD</label>
+            <input class="container__form__input " value="045204999232" type="text" id="cccd" name="cccd" required>
             <label class="container__form__label" for="issuedDate">Ngày cấp</label>
-            <input class="container__form__input" value="15/09/2023" type="text" id="issuedDate"
+            <input class="container__form__input" value="2023-09-15" type="text" id="issuedDate"
+                   placeholder="yyyy-mm-dd"
                    name="issuedDate" required>
             <label class="container__form__label" for="issuedAddress">Nơi cấp</label>
             <input class="container__form__input  " value="Quang Tri" type="text" id="issuedAddress"
                    name="issuedAddress" required>
             <label class="container__form__label" for="dob">Ngày tháng năm sinh</label>
-            <input class="container__form__input  " type="text" id="dob" value="15/09/2004"
+            <input class="container__form__input" type="text" id="dob" value="2004-09-15" placeholder="yyyy-mm-dd"
                    name="dob" required>
             <label class="container__form__label" for="sex">Giới tính</label>
-            <select class="container__form__input">
+            <select class="container__form__input" id="sex" name="sex">
                 <option value="male">Nam</option>
-                <option value="female">Nữ</option>
+                <option value="female">Nu</option>
             </select>
             <label class="container__form__label" for="nationality">Quốc tịch</label>
             <input class="container__form__input" type="text" id="nationality"
@@ -41,9 +42,11 @@
             <label class="container__form__label" for="contactAddress">Địa chỉ liên hệ</label>
             <input class="container__form__input" type="text" id="contactAddress"
                    name="contactAddress" required value="Di An Binh Duong">
-            <label class="container__form__label" for="contactAddress">Địa chỉ liên hệ</label>
-            <input class="container__form__input" type="email" id="contactAddress"
-                   name="contactAddress" required value="Nguyentruongpro19@gmail.com">
+            <label class="container__form__label" for="contactAddress">Email</label>
+            <input class="container__form__input" type="email" id="email"
+                   name="email" required value="Nguyentruongpro19@gmail.com">
+            <input type="hidden" name="phoneNumber" value="{{this.userInfo.phoneNumber}}">
+            <input type="hidden" name="fullName" value="{{this.userInfo.fullName}}">
             <label class="container__form__label" for="contactAddress">Mặt trước CCCD</label>
             <button class="container__form__button button--send-image">
             </button>
@@ -52,13 +55,14 @@
             </button>
             <div class="container__form__policy">
                 <div class="round">
-                    <input type="checkbox" checked id="checkbox" />
+                    <input type="checkbox" checked id="checkbox"/>
                     <label for="checkbox"></label>
                 </div>
-<!--                <img src="images/checklist.png" style="width: 25px; height: 25px">-->
-                <p style="text-align: left; margin-left: 20px">Tôi đồng ý với các <a href="#">điều khoản</a> và <a href="#">chính sách</a> của ngân hàng</p>
+                <!--                <img src="images/checklist.png" style="width: 25px; height: 25px">-->
+                <p style="text-align: left; margin-left: 20px">Tôi đồng ý với các <a href="#">điều khoản</a> và <a
+                        href="#">chính sách</a> của ngân hàng</p>
             </div>
-            <button class="container__form__button button--login">
+            <button class="container__form__button button--login" type="submit">
                 Xác nhận
             </button>
 
