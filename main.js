@@ -2,18 +2,21 @@ import express from 'express';
 import {engine} from 'express-handlebars';
 import livereload from 'livereload';
 import connectLiveReload from 'connect-livereload'
-
+import bodyParser from "body-parser";
 const liveReloadServer = livereload.createServer();
 liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
         liveReloadServer.refresh("/");
     }, 1);
 });
-
 const app = express();
 
 app.use('/images', express.static('images'));
+//Module cho việc parse dữ liệu trong form thành json
+app.use(bodyParser.urlencoded({extend: true}));
+app.use(bodyParser.json());
 
+//module dùng cho việc auto reload server khi thay đổi code
 app.use(connectLiveReload());
 
 app.engine('hbs', engine({
@@ -44,7 +47,18 @@ app.get('/sign-in/step-1', function (req, res) {
         layout: false,
     });
 })
+app.post('/sign-in/step-1',  function (req, res) {
+    console.log(req.body);
+    const userInfo = {
+        fullName: req.body.fullName,
+        phoneNumber: req.body.phoneNumber,
+    }
+    res.render('sign-in/step-2', {
+        layout: false,
+        userInfo: userInfo,
+    })
 
+});
 // Sign in routing - step 2
 app.get('/sign-in/step-2', function (req, res) {
     res.render('signin2');
