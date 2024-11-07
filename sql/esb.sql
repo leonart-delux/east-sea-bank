@@ -1,337 +1,179 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
---
--- Host: 127.0.0.1    Database: esb
--- ------------------------------------------------------
--- Server version	8.4.0
+/*
+ Navicat Premium Dump SQL
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+ Source Server         : local 
+ Source Server Type    : MySQL
+ Source Server Version : 100427 (10.4.27-MariaDB)
+ Source Host           : localhost:3306
+ Source Schema         : esb
 
---
--- Table structure for table `chuyen_tien`
---
+ Target Server Type    : MySQL
+ Target Server Version : 100427 (10.4.27-MariaDB)
+ File Encoding         : 65001
 
+ Date: 07/11/2024 23:37:30
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for chuyen_tien
+-- ----------------------------
 DROP TABLE IF EXISTS `chuyen_tien`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `chuyen_tien` (
-  `MaGD` char(10) NOT NULL,
-  `STKGoc` char(10) DEFAULT NULL,
-  `STKDich` char(10) DEFAULT NULL,
-  `SoTien` int DEFAULT NULL,
-  `NoiDung` varchar(150) DEFAULT NULL,
-  `ThoiGian` date DEFAULT NULL,
-  PRIMARY KEY (`MaGD`),
-  KEY `FK_ChuyenTien_TaiKhoan` (`STKGoc`),
-  KEY `FK_ChuyenTien_TaiKhoan1` (`STKDich`),
-  CONSTRAINT `FK_ChuyenTien_TaiKhoan` FOREIGN KEY (`STKGoc`) REFERENCES `tai_khoan` (`SoTaiKhoan`),
-  CONSTRAINT `FK_ChuyenTien_TaiKhoan1` FOREIGN KEY (`STKDich`) REFERENCES `tai_khoan` (`SoTaiKhoan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `chuyen_tien`  (
+  `Ma_GD` bigint NOT NULL AUTO_INCREMENT,
+  `STK_Gui` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `STK_Nhan` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `So_Tien` float NULL DEFAULT NULL,
+  `Noi_Dung` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Thoi_Gian` date NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_GD`) USING BTREE,
+  INDEX `FK_Chuyen_Tien_Tai_Khoan`(`STK_Gui` ASC) USING BTREE,
+  INDEX `FK_Chuyen_Tien_Tai_Khoan1`(`STK_Nhan` ASC) USING BTREE,
+  CONSTRAINT `FK_Chuyen_Tien_Tai_Khoan` FOREIGN KEY (`STK_Gui`) REFERENCES `tai_khoan` (`So_Tai_Khoan`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_Chuyen_Tien_Tai_Khoan1` FOREIGN KEY (`STK_Nhan`) REFERENCES `tai_khoan` (`So_Tai_Khoan`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `chuyen_tien`
---
-
-LOCK TABLES `chuyen_tien` WRITE;
-/*!40000 ALTER TABLE `chuyen_tien` DISABLE KEYS */;
-/*!40000 ALTER TABLE `chuyen_tien` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `khach_hang`
---
-
+-- ----------------------------
+-- Table structure for khach_hang
+-- ----------------------------
 DROP TABLE IF EXISTS `khach_hang`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `khach_hang` (
-  `MaKH` char(10) NOT NULL,
-  `HoTen` varchar(50) DEFAULT NULL,
-  `SDT` varchar(50) DEFAULT NULL,
-  `DiaChi` varchar(150) DEFAULT NULL,
-  `NgaySinh` date DEFAULT NULL,
-  `Email` varchar(50) DEFAULT NULL,
-  `CCCD` varchar(50) DEFAULT NULL,
-  `NgayMoTaiKhoan` date DEFAULT NULL,
-  `DiemTinDung` int DEFAULT NULL,
-  PRIMARY KEY (`MaKH`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `khach_hang`  (
+  `Ma_KH` bigint NOT NULL AUTO_INCREMENT,
+  `Ho_Ten` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `SDT` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Dia_Chi` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Ngay_Sinh` date NULL DEFAULT NULL,
+  `Email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `CCCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Ngay_Mo_Tai_Khoan` date NULL DEFAULT NULL,
+  `Diem_Tin_Dung` int NULL DEFAULT NULL,
+  `ngay_cap_cccd` date NULL DEFAULT NULL,
+  `noi_cap_cccd` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `gioi_tinh` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `quoc_tich` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `que_quan` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `dia_chi_thuong_tru` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `dia_chi_lien_he` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `trang_thai` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_KH`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `khach_hang`
---
-
-LOCK TABLES `khach_hang` WRITE;
-/*!40000 ALTER TABLE `khach_hang` DISABLE KEYS */;
-/*!40000 ALTER TABLE `khach_hang` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `khoan_vay`
---
-
+-- ----------------------------
+-- Table structure for khoan_vay
+-- ----------------------------
 DROP TABLE IF EXISTS `khoan_vay`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `khoan_vay` (
-  `MaVay` char(10) NOT NULL,
-  `SoTaiKhoan` char(10) DEFAULT NULL,
-  `LoaiVay` varchar(50) DEFAULT NULL,
-  `KhoanVay` int DEFAULT NULL,
-  `KyHan` int DEFAULT NULL,
-  `NgayBatDau` date DEFAULT NULL,
-  `NgayKetThuc` date DEFAULT NULL,
-  `LaiSuat` float DEFAULT NULL,
-  PRIMARY KEY (`MaVay`),
-  KEY `FK_KhoanVay_TaiKhoan` (`SoTaiKhoan`),
-  CONSTRAINT `FK_KhoanVay_TaiKhoan` FOREIGN KEY (`SoTaiKhoan`) REFERENCES `tai_khoan` (`SoTaiKhoan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `khoan_vay`  (
+  `Ma_Vay` bigint NOT NULL AUTO_INCREMENT,
+  `So_Tai_Khoan` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Loai_Vay` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Khoan_Vay` float NULL DEFAULT NULL,
+  `Ky_Han` int NULL DEFAULT NULL,
+  `Ngay_Bat_Dau` date NULL DEFAULT NULL,
+  `Ngay_Ket_Thuc` date NULL DEFAULT NULL,
+  `Lai_Suat` float NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_Vay`) USING BTREE,
+  INDEX `FK_Khoan_Vay_Tai_Khoan`(`So_Tai_Khoan` ASC) USING BTREE,
+  CONSTRAINT `FK_Khoan_Vay_Tai_Khoan` FOREIGN KEY (`So_Tai_Khoan`) REFERENCES `tai_khoan` (`So_Tai_Khoan`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `khoan_vay`
---
-
-LOCK TABLES `khoan_vay` WRITE;
-/*!40000 ALTER TABLE `khoan_vay` DISABLE KEYS */;
-/*!40000 ALTER TABLE `khoan_vay` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `ky_han`
---
-
+-- ----------------------------
+-- Table structure for ky_han
+-- ----------------------------
 DROP TABLE IF EXISTS `ky_han`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `ky_han` (
-  `MaKyHan` char(10) NOT NULL,
-  `ThoiGianKyHan` int DEFAULT NULL,
-  `KhoangKyHan` char(10) DEFAULT NULL,
-  PRIMARY KEY (`MaKyHan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `ky_han`  (
+  `Ma_Ky_Han` bigint NOT NULL AUTO_INCREMENT,
+  `Thoi_Gian_Ky_Han` int NULL DEFAULT NULL,
+  `Khoang_Ky_Han` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_Ky_Han`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `ky_han`
---
-
-LOCK TABLES `ky_han` WRITE;
-/*!40000 ALTER TABLE `ky_han` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ky_han` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `loai_hinh_tiet_kiem`
---
-
+-- ----------------------------
+-- Table structure for loai_hinh_tiet_kiem
+-- ----------------------------
 DROP TABLE IF EXISTS `loai_hinh_tiet_kiem`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `loai_hinh_tiet_kiem` (
-  `MaLoaiHinh` char(10) NOT NULL,
-  `TenLoaiHinh` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`MaLoaiHinh`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `loai_hinh_tiet_kiem`  (
+  `Ma_Loai_Hinh` bigint NOT NULL AUTO_INCREMENT,
+  `Ten_Loai_Hinh` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_Loai_Hinh`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `loai_hinh_tiet_kiem`
---
-
-LOCK TABLES `loai_hinh_tiet_kiem` WRITE;
-/*!40000 ALTER TABLE `loai_hinh_tiet_kiem` DISABLE KEYS */;
-/*!40000 ALTER TABLE `loai_hinh_tiet_kiem` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `nhan_vien`
---
-
+-- ----------------------------
+-- Table structure for nhan_vien
+-- ----------------------------
 DROP TABLE IF EXISTS `nhan_vien`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `nhan_vien` (
-  `MaNhanVien` char(10) NOT NULL,
-  `HoTen` varchar(50) DEFAULT NULL,
-  `SDT` varchar(50) DEFAULT NULL,
-  `NgaySinh` date DEFAULT NULL,
-  `DiaChi` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`MaNhanVien`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `nhan_vien`  (
+  `Ma_Nhan_Vien` bigint NOT NULL AUTO_INCREMENT,
+  `Ho_Ten` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `SDT` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Ngay_Sinh` date NULL DEFAULT NULL,
+  `Dia_Chi` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_Nhan_Vien`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `nhan_vien`
---
-
-LOCK TABLES `nhan_vien` WRITE;
-/*!40000 ALTER TABLE `nhan_vien` DISABLE KEYS */;
-/*!40000 ALTER TABLE `nhan_vien` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tai_khoan`
---
-
+-- ----------------------------
+-- Table structure for tai_khoan
+-- ----------------------------
 DROP TABLE IF EXISTS `tai_khoan`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tai_khoan` (
-  `SoTaiKhoan` char(10) NOT NULL,
-  `MaKH` char(10) NOT NULL,
-  `SoDu` int DEFAULT NULL,
-  `TinhTrang` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`SoTaiKhoan`),
-  KEY `FK_TaiKhoan_KhachHang` (`MaKH`),
-  CONSTRAINT `FK_TaiKhoan_KhachHang` FOREIGN KEY (`MaKH`) REFERENCES `khach_hang` (`MaKH`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `tai_khoan`  (
+  `So_Tai_Khoan` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Ma_KH` bigint NOT NULL,
+  `So_Du` float NULL DEFAULT NULL,
+  `Tinh_Trang` tinyint(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`So_Tai_Khoan`) USING BTREE,
+  INDEX `fk_tai_khoan_khach_hang_idx`(`Ma_KH` ASC) USING BTREE,
+  CONSTRAINT `fk_tai_khoan_khach_hang` FOREIGN KEY (`Ma_KH`) REFERENCES `khach_hang` (`Ma_KH`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `tai_khoan`
---
-
-LOCK TABLES `tai_khoan` WRITE;
-/*!40000 ALTER TABLE `tai_khoan` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tai_khoan` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `thanh_toan_vay`
---
-
+-- ----------------------------
+-- Table structure for thanh_toan_vay
+-- ----------------------------
 DROP TABLE IF EXISTS `thanh_toan_vay`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `thanh_toan_vay` (
-  `MaThanhToan` char(10) NOT NULL,
-  `MaVay` char(10) DEFAULT NULL,
-  `KhoanTienThanhToan` int DEFAULT NULL,
-  `NgayThanhToan` date DEFAULT NULL,
-  `TrangThai` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`MaThanhToan`),
-  KEY `FK_ThanhToanVay_KhoanVay` (`MaVay`),
-  CONSTRAINT `FK_ThanhToanVay_KhoanVay` FOREIGN KEY (`MaVay`) REFERENCES `khoan_vay` (`MaVay`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `thanh_toan_vay`  (
+  `Ma_Thanh_Toan` bigint NOT NULL AUTO_INCREMENT,
+  `Ma_Vay` bigint NULL DEFAULT NULL,
+  `Khoan_Tien_Thanh_Toan` float NULL DEFAULT NULL,
+  `Ngay_Thanh_Toan` date NULL DEFAULT NULL,
+  `Trang_Thai` tinyint(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_Thanh_Toan`) USING BTREE,
+  INDEX `FK_Thanh_Toan_Vay_Khoan_Vay`(`Ma_Vay` ASC) USING BTREE,
+  CONSTRAINT `FK_Thanh_Toan_Vay_Khoan_Vay` FOREIGN KEY (`Ma_Vay`) REFERENCES `khoan_vay` (`Ma_Vay`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `thanh_toan_vay`
---
-
-LOCK TABLES `thanh_toan_vay` WRITE;
-/*!40000 ALTER TABLE `thanh_toan_vay` DISABLE KEYS */;
-/*!40000 ALTER TABLE `thanh_toan_vay` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tuy_chon_sau_khi_het_han`
---
-
+-- ----------------------------
+-- Table structure for tuy_chon_sau_khi_het_han
+-- ----------------------------
 DROP TABLE IF EXISTS `tuy_chon_sau_khi_het_han`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tuy_chon_sau_khi_het_han` (
-  `MaTuyChon` char(10) NOT NULL,
-  `TenTuyChon` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`MaTuyChon`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `tuy_chon_sau_khi_het_han`  (
+  `Ma_Tuy_Chon` bigint NOT NULL AUTO_INCREMENT,
+  `Ten_Tuy_Chon` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_Tuy_Chon`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `tuy_chon_sau_khi_het_han`
---
-
-LOCK TABLES `tuy_chon_sau_khi_het_han` WRITE;
-/*!40000 ALTER TABLE `tuy_chon_sau_khi_het_han` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tuy_chon_sau_khi_het_han` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `vi_tiet_kiem`
---
-
+-- ----------------------------
+-- Table structure for vi_tiet_kiem
+-- ----------------------------
 DROP TABLE IF EXISTS `vi_tiet_kiem`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vi_tiet_kiem` (
-  `MaVi` char(10) NOT NULL,
-  `SoTaiKhoan` char(10) DEFAULT NULL,
-  `MaKyHan` char(10) DEFAULT NULL,
-  `MaLoaiHinhTK` char(10) DEFAULT NULL,
-  `MaTuyChon` char(10) DEFAULT NULL,
-  `TienGoc` int DEFAULT NULL,
-  `TienTai` int DEFAULT NULL,
-  `NgayGui` date DEFAULT NULL,
-  `Lai` float DEFAULT NULL,
-  PRIMARY KEY (`MaVi`),
-  KEY `FK_ViTietKiem_KyHan` (`MaKyHan`),
-  KEY `FK_ViTietKiem_LoaiHinhTietKiem` (`MaLoaiHinhTK`),
-  KEY `FK_ViTietKiem_TaiKhoan` (`SoTaiKhoan`),
-  KEY `FK_ViTietKiem_TuyChonSauKhiHetHan` (`MaTuyChon`),
-  CONSTRAINT `FK_ViTietKiem_KyHan` FOREIGN KEY (`MaKyHan`) REFERENCES `ky_han` (`MaKyHan`),
-  CONSTRAINT `FK_ViTietKiem_LoaiHinhTietKiem` FOREIGN KEY (`MaLoaiHinhTK`) REFERENCES `loai_hinh_tiet_kiem` (`MaLoaiHinh`),
-  CONSTRAINT `FK_ViTietKiem_TaiKhoan` FOREIGN KEY (`SoTaiKhoan`) REFERENCES `tai_khoan` (`SoTaiKhoan`),
-  CONSTRAINT `FK_ViTietKiem_TuyChonSauKhiHetHan` FOREIGN KEY (`MaTuyChon`) REFERENCES `tuy_chon_sau_khi_het_han` (`MaTuyChon`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `vi_tiet_kiem`  (
+  `Ma_Vi` bigint NOT NULL AUTO_INCREMENT,
+  `So_Tai_Khoan` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Ma_Ky_Han` bigint NULL DEFAULT NULL,
+  `Ma_Loai_Hinh_TK` bigint NULL DEFAULT NULL,
+  `Ma_Tuy_Chon` bigint NULL DEFAULT NULL,
+  `Tien_Goc` float NULL DEFAULT NULL,
+  `Tien_Tai` float NULL DEFAULT NULL,
+  `Ngay_Gui` date NULL DEFAULT NULL,
+  `Lai` float NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_Vi`) USING BTREE,
+  INDEX `FK_Vi_Tiet_Kiem_Ky_Han`(`Ma_Ky_Han` ASC) USING BTREE,
+  INDEX `FK_ViTietKiem_LoaiHinhTietKiem`(`Ma_Loai_Hinh_TK` ASC) USING BTREE,
+  INDEX `FK_ViTietKiem_TaiKhoan`(`So_Tai_Khoan` ASC) USING BTREE,
+  INDEX `FK_ViTietKiem_TuyChonSauKhiHetHan`(`Ma_Tuy_Chon` ASC) USING BTREE,
+  CONSTRAINT `FK_ViTietKiem_KyHan` FOREIGN KEY (`Ma_Ky_Han`) REFERENCES `ky_han` (`Ma_Ky_Han`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_ViTietKiem_LoaiHinhTietKiem` FOREIGN KEY (`Ma_Loai_Hinh_TK`) REFERENCES `loai_hinh_tiet_kiem` (`Ma_Loai_Hinh`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_ViTietKiem_TaiKhoan` FOREIGN KEY (`So_Tai_Khoan`) REFERENCES `tai_khoan` (`So_Tai_Khoan`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_ViTietKiem_TuyChonSauKhiHetHan` FOREIGN KEY (`Ma_Tuy_Chon`) REFERENCES `tuy_chon_sau_khi_het_han` (`Ma_Tuy_Chon`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `vi_tiet_kiem`
---
-
-LOCK TABLES `vi_tiet_kiem` WRITE;
-/*!40000 ALTER TABLE `vi_tiet_kiem` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vi_tiet_kiem` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `yeu_cau_vay`
---
-
-DROP TABLE IF EXISTS `yeu_cau_vay`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `yeu_cau_vay` (
-  `MaYeuCau` char(10) NOT NULL,
-  `SoTaiKhoan` char(10) DEFAULT NULL,
-  `LoaiVay` varchar(50) DEFAULT NULL,
-  `KhoanVay` int DEFAULT NULL,
-  `NgayYeuCau` date DEFAULT NULL,
-  `TrangThai` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`MaYeuCau`),
-  KEY `FK_YeuCauVay_TaiKhoan` (`SoTaiKhoan`),
-  CONSTRAINT `FK_YeuCauVay_TaiKhoan` FOREIGN KEY (`SoTaiKhoan`) REFERENCES `tai_khoan` (`SoTaiKhoan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `yeu_cau_vay`
---
-
-LOCK TABLES `yeu_cau_vay` WRITE;
-/*!40000 ALTER TABLE `yeu_cau_vay` DISABLE KEYS */;
-/*!40000 ALTER TABLE `yeu_cau_vay` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2024-11-07 11:21:34
+SET FOREIGN_KEY_CHECKS = 1;
