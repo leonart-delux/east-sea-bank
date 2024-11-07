@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `esb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `esb`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: esb
@@ -18,13 +16,13 @@ USE `esb`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `chuyentien`
+-- Table structure for table `chuyen_tien`
 --
 
-DROP TABLE IF EXISTS `chuyentien`;
+DROP TABLE IF EXISTS `chuyen_tien`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `chuyentien` (
+CREATE TABLE `chuyen_tien` (
   `MaGD` char(10) NOT NULL,
   `STKGoc` char(10) DEFAULT NULL,
   `STKDich` char(10) DEFAULT NULL,
@@ -34,19 +32,19 @@ CREATE TABLE `chuyentien` (
   PRIMARY KEY (`MaGD`),
   KEY `FK_ChuyenTien_TaiKhoan` (`STKGoc`),
   KEY `FK_ChuyenTien_TaiKhoan1` (`STKDich`),
-  CONSTRAINT `FK_ChuyenTien_TaiKhoan` FOREIGN KEY (`STKGoc`) REFERENCES `taikhoan` (`SoTaiKhoan`),
-  CONSTRAINT `FK_ChuyenTien_TaiKhoan1` FOREIGN KEY (`STKDich`) REFERENCES `taikhoan` (`SoTaiKhoan`)
+  CONSTRAINT `FK_ChuyenTien_TaiKhoan` FOREIGN KEY (`STKGoc`) REFERENCES `tai_khoan` (`SoTaiKhoan`),
+  CONSTRAINT `FK_ChuyenTien_TaiKhoan1` FOREIGN KEY (`STKDich`) REFERENCES `tai_khoan` (`SoTaiKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `khachhang`
+-- Table structure for table `khach_hang`
 --
 
-DROP TABLE IF EXISTS `khachhang`;
+DROP TABLE IF EXISTS `khach_hang`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `khachhang` (
+CREATE TABLE `khach_hang` (
   `MaKH` char(10) NOT NULL,
   `HoTen` varchar(50) DEFAULT NULL,
   `SDT` varchar(50) DEFAULT NULL,
@@ -61,13 +59,13 @@ CREATE TABLE `khachhang` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `khoanvay`
+-- Table structure for table `khoan_vay`
 --
 
-DROP TABLE IF EXISTS `khoanvay`;
+DROP TABLE IF EXISTS `khoan_vay`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `khoanvay` (
+CREATE TABLE `khoan_vay` (
   `MaVay` char(10) NOT NULL,
   `SoTaiKhoan` char(10) DEFAULT NULL,
   `LoaiVay` varchar(50) DEFAULT NULL,
@@ -78,18 +76,18 @@ CREATE TABLE `khoanvay` (
   `LaiSuat` float DEFAULT NULL,
   PRIMARY KEY (`MaVay`),
   KEY `FK_KhoanVay_TaiKhoan` (`SoTaiKhoan`),
-  CONSTRAINT `FK_KhoanVay_TaiKhoan` FOREIGN KEY (`SoTaiKhoan`) REFERENCES `taikhoan` (`SoTaiKhoan`)
+  CONSTRAINT `FK_KhoanVay_TaiKhoan` FOREIGN KEY (`SoTaiKhoan`) REFERENCES `tai_khoan` (`SoTaiKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `kyhan`
+-- Table structure for table `ky_han`
 --
 
-DROP TABLE IF EXISTS `kyhan`;
+DROP TABLE IF EXISTS `ky_han`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `kyhan` (
+CREATE TABLE `ky_han` (
   `MaKyHan` char(10) NOT NULL,
   `ThoiGianKyHan` int DEFAULT NULL,
   `KhoangKyHan` char(10) DEFAULT NULL,
@@ -98,13 +96,13 @@ CREATE TABLE `kyhan` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `loaihinhtietkiem`
+-- Table structure for table `loai_hinh_tiet_kiem`
 --
 
-DROP TABLE IF EXISTS `loaihinhtietkiem`;
+DROP TABLE IF EXISTS `loai_hinh_tiet_kiem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `loaihinhtietkiem` (
+CREATE TABLE `loai_hinh_tiet_kiem` (
   `MaLoaiHinh` char(10) NOT NULL,
   `TenLoaiHinh` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`MaLoaiHinh`)
@@ -112,13 +110,13 @@ CREATE TABLE `loaihinhtietkiem` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `mucgui`
+-- Table structure for table `muc_gui`
 --
 
-DROP TABLE IF EXISTS `mucgui`;
+DROP TABLE IF EXISTS `muc_gui`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mucgui` (
+CREATE TABLE `muc_gui` (
   `MaMucGui` char(10) NOT NULL,
   `MucToiThieu` int DEFAULT NULL,
   `MucToiDa` int DEFAULT NULL,
@@ -127,13 +125,13 @@ CREATE TABLE `mucgui` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `nhanvien`
+-- Table structure for table `nhan_vien`
 --
 
-DROP TABLE IF EXISTS `nhanvien`;
+DROP TABLE IF EXISTS `nhan_vien`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `nhanvien` (
+CREATE TABLE `nhan_vien` (
   `MaNhanVien` char(10) NOT NULL,
   `HoTen` varchar(50) DEFAULT NULL,
   `SDT` varchar(50) DEFAULT NULL,
@@ -144,13 +142,13 @@ CREATE TABLE `nhanvien` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `phuongthucnhanlai`
+-- Table structure for table `phuong_thuc_nhan_lai`
 --
 
-DROP TABLE IF EXISTS `phuongthucnhanlai`;
+DROP TABLE IF EXISTS `phuong_thuc_nhan_lai`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `phuongthucnhanlai` (
+CREATE TABLE `phuong_thuc_nhan_lai` (
   `MaPhuongThuc` char(10) NOT NULL,
   `TenPhuongThuc` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`MaPhuongThuc`)
@@ -158,31 +156,31 @@ CREATE TABLE `phuongthucnhanlai` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `taikhoan`
+-- Table structure for table `tai_khoan`
 --
 
-DROP TABLE IF EXISTS `taikhoan`;
+DROP TABLE IF EXISTS `tai_khoan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `taikhoan` (
+CREATE TABLE `tai_khoan` (
   `SoTaiKhoan` char(10) NOT NULL,
   `MaKH` char(10) NOT NULL,
   `SoDu` int DEFAULT NULL,
   `TinhTrang` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`SoTaiKhoan`),
   KEY `FK_TaiKhoan_KhachHang` (`MaKH`),
-  CONSTRAINT `FK_TaiKhoan_KhachHang` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`)
+  CONSTRAINT `FK_TaiKhoan_KhachHang` FOREIGN KEY (`MaKH`) REFERENCES `khach_hang` (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `thanhtoanvay`
+-- Table structure for table `thanh_toan_vay`
 --
 
-DROP TABLE IF EXISTS `thanhtoanvay`;
+DROP TABLE IF EXISTS `thanh_toan_vay`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `thanhtoanvay` (
+CREATE TABLE `thanh_toan_vay` (
   `MaThanhToan` char(10) NOT NULL,
   `MaVay` char(10) DEFAULT NULL,
   `KhoanTienThanhToan` int DEFAULT NULL,
@@ -190,18 +188,18 @@ CREATE TABLE `thanhtoanvay` (
   `TrangThai` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`MaThanhToan`),
   KEY `FK_ThanhToanVay_KhoanVay` (`MaVay`),
-  CONSTRAINT `FK_ThanhToanVay_KhoanVay` FOREIGN KEY (`MaVay`) REFERENCES `khoanvay` (`MaVay`)
+  CONSTRAINT `FK_ThanhToanVay_KhoanVay` FOREIGN KEY (`MaVay`) REFERENCES `khoan_vay` (`MaVay`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `tuychonsaukhihethan`
+-- Table structure for table `tuy_chon_sau_khi_het_han`
 --
 
-DROP TABLE IF EXISTS `tuychonsaukhihethan`;
+DROP TABLE IF EXISTS `tuy_chon_sau_khi_het_han`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tuychonsaukhihethan` (
+CREATE TABLE `tuy_chon_sau_khi_het_han` (
   `MaTuyChon` char(10) NOT NULL,
   `TenTuyChon` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`MaTuyChon`)
@@ -209,13 +207,13 @@ CREATE TABLE `tuychonsaukhihethan` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `vitietkiem`
+-- Table structure for table `vi_tiet_kiem`
 --
 
-DROP TABLE IF EXISTS `vitietkiem`;
+DROP TABLE IF EXISTS `vi_tiet_kiem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vitietkiem` (
+CREATE TABLE `vi_tiet_kiem` (
   `MaVi` char(10) NOT NULL,
   `SoTaiKhoan` char(10) DEFAULT NULL,
   `MaMucGui` char(10) DEFAULT NULL,
@@ -234,23 +232,23 @@ CREATE TABLE `vitietkiem` (
   KEY `FK_ViTietKiem_PhuongThucNhanLai` (`MaPhuongThuc`),
   KEY `FK_ViTietKiem_TaiKhoan` (`SoTaiKhoan`),
   KEY `FK_ViTietKiem_TuyChonSauKhiHetHan` (`MaTuyChon`),
-  CONSTRAINT `FK_ViTietKiem_KyHan` FOREIGN KEY (`MaKyHan`) REFERENCES `kyhan` (`MaKyHan`),
-  CONSTRAINT `FK_ViTietKiem_LoaiHinhTietKiem` FOREIGN KEY (`MaLoaiHinhTK`) REFERENCES `loaihinhtietkiem` (`MaLoaiHinh`),
-  CONSTRAINT `FK_ViTietKiem_MucGui` FOREIGN KEY (`MaMucGui`) REFERENCES `mucgui` (`MaMucGui`),
-  CONSTRAINT `FK_ViTietKiem_PhuongThucNhanLai` FOREIGN KEY (`MaPhuongThuc`) REFERENCES `phuongthucnhanlai` (`MaPhuongThuc`),
-  CONSTRAINT `FK_ViTietKiem_TaiKhoan` FOREIGN KEY (`SoTaiKhoan`) REFERENCES `taikhoan` (`SoTaiKhoan`),
-  CONSTRAINT `FK_ViTietKiem_TuyChonSauKhiHetHan` FOREIGN KEY (`MaTuyChon`) REFERENCES `tuychonsaukhihethan` (`MaTuyChon`)
+  CONSTRAINT `FK_ViTietKiem_KyHan` FOREIGN KEY (`MaKyHan`) REFERENCES `ky_han` (`MaKyHan`),
+  CONSTRAINT `FK_ViTietKiem_LoaiHinhTietKiem` FOREIGN KEY (`MaLoaiHinhTK`) REFERENCES `loai_hinh_tiet_kiem` (`MaLoaiHinh`),
+  CONSTRAINT `FK_ViTietKiem_MucGui` FOREIGN KEY (`MaMucGui`) REFERENCES `muc_gui` (`MaMucGui`),
+  CONSTRAINT `FK_ViTietKiem_PhuongThucNhanLai` FOREIGN KEY (`MaPhuongThuc`) REFERENCES `phuong_thuc_nhan_lai` (`MaPhuongThuc`),
+  CONSTRAINT `FK_ViTietKiem_TaiKhoan` FOREIGN KEY (`SoTaiKhoan`) REFERENCES `tai_khoan` (`SoTaiKhoan`),
+  CONSTRAINT `FK_ViTietKiem_TuyChonSauKhiHetHan` FOREIGN KEY (`MaTuyChon`) REFERENCES `tuy_chon_sau_khi_het_han` (`MaTuyChon`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `yeucauvay`
+-- Table structure for table `yeu_cau_vay`
 --
 
-DROP TABLE IF EXISTS `yeucauvay`;
+DROP TABLE IF EXISTS `yeu_cau_vay`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `yeucauvay` (
+CREATE TABLE `yeu_cau_vay` (
   `MaYeuCau` char(10) NOT NULL,
   `SoTaiKhoan` char(10) DEFAULT NULL,
   `LoaiVay` varchar(50) DEFAULT NULL,
@@ -259,7 +257,7 @@ CREATE TABLE `yeucauvay` (
   `TrangThai` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`MaYeuCau`),
   KEY `FK_YeuCauVay_TaiKhoan` (`SoTaiKhoan`),
-  CONSTRAINT `FK_YeuCauVay_TaiKhoan` FOREIGN KEY (`SoTaiKhoan`) REFERENCES `taikhoan` (`SoTaiKhoan`)
+  CONSTRAINT `FK_YeuCauVay_TaiKhoan` FOREIGN KEY (`SoTaiKhoan`) REFERENCES `tai_khoan` (`SoTaiKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -272,4 +270,4 @@ CREATE TABLE `yeucauvay` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-07  9:57:33
+-- Dump completed on 2024-11-07 11:14:36
