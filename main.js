@@ -3,6 +3,9 @@ import {engine} from 'express-handlebars';
 import livereload from 'livereload';
 import connectLiveReload from 'connect-livereload'
 import bodyParser from "body-parser";
+import session from "express-session"
+import userService from "./service/userService.js";
+
 const liveReloadServer = livereload.createServer();
 liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
@@ -10,13 +13,18 @@ liveReloadServer.server.once("connection", () => {
     }, 1);
 });
 const app = express();
-
+app.use(session({
+    secret: "NhatKyVienPhuong",
+    resave: false,
+    saveUninitialized: true
+}));
 app.use('/images', express.static('images'));
 //Module cho việc parse dữ liệu trong form thành json
 app.use(bodyParser.urlencoded({extend: true}));
 app.use(bodyParser.json());
 
 //module dùng cho việc auto reload server khi thay đổi code
+//npm run watch để run
 app.use(connectLiveReload());
 
 app.engine('hbs', engine({
@@ -47,23 +55,33 @@ app.get('/sign-in/step-1', function (req, res) {
         layout: false,
     });
 })
-app.post('/sign-in/step-1',  function (req, res) {
+app.post('/sign-in/step-1', function (req, res) {
     console.log(req.body);
-    const userInfo = {
+    req.session.userInfo = {
         fullName: req.body.fullName,
         phoneNumber: req.body.phoneNumber,
-    }
-    res.render('sign-in/step-2', {
-        layout: false,
-        userInfo: userInfo,
-    })
+    };
+    res.redirect('/sign-in/step-2');
 
 });
 // Sign in routing - step 2
 app.get('/sign-in/step-2', function (req, res) {
-    res.render('signin2');
+    res.render('sign-in/step-2', {
+        layout: false,
+        userInfo: req.session.userInfo,
+    });
 })
 
+app.post('/sign-in/step-2', async function (req, res) {
+    console.log(await userService.addUserInfo(req.body));
+
+});
+app.get('/sign-in/step-3', function (req, res) {
+    res.render('sign-in/step-2', {
+        layout: false,
+        userInfo: req.session.userInfo,
+    });
+})
 // Sign in routing - step 3
 app.get('/sign-in/step-3', function (req, res) {
     res.render('signin3');
