@@ -1,5 +1,5 @@
 import express from 'express';
-import { engine } from 'express-handlebars';
+import {engine} from 'express-handlebars';
 import livereload from 'livereload';
 import connectLiveReload from 'connect-livereload'
 
@@ -25,19 +25,24 @@ app.use(express.static('./public'));
 
 // Home page routing
 app.get('/', function (req, res) {
-    res.render('sign-in/step-2',{
-        layout:false
+    res.render('home_login_register', {
+        layout: false
     });
 });
 
 // Log in routing
 app.get('/login', function (req, res) {
-    res.render('login');
+    res.render('login'
+        , {
+            layout: false
+        });
 })
 
 // Sign in routing - step 1
 app.get('/sign-in/step-1', function (req, res) {
-    res.render('signin1');
+    res.render('sign-in/step-1', {
+        layout: false,
+    });
 })
 
 // Sign in routing - step 2

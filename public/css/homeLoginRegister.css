@@ -94,11 +94,12 @@
     border: transparent;
 }
 
-.button--log {
+.link--login {
     background-color: #134B70;
     color: #FFFFFF;
     margin-top: 20px;
     margin-right: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container__form__button:hover {
@@ -187,6 +188,7 @@
     height: 350px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .content-container__slogan__text {
@@ -251,6 +253,24 @@
     font-size: 20px;
     font-weight: bold;
 }
+.container__form_link {
+    width: 166px;
+    height: 40px;
+    border-radius: 20px;
+    border: transparent;
+    display: inline-block;
+    padding-inline: 6px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    vertical-align: middle;
+}
+.link--login:hover{
+    background-color: #1E7BB6; /* Thay đổi màu nền khi hover */
+    color: #FFD700;
+    cursor: pointer;
+}
+
 
 /*.content-container__footer div {*/
 /*    display: flex;*/
