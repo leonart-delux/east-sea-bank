@@ -27,13 +27,13 @@
     text-decoration: none;
     font-weight: bold;
     color: red;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .content-container__navigation ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 20px 0px 0px;
 }
 
 .content-container__thumbnail {
@@ -49,7 +49,6 @@
     max-width: 510px;
     word-wrap: break-word; /* Cho phép xuống hàng */
     overflow: hidden;
-    margin-right: 100px;
 }
 
 .thumbnail__content__search {
@@ -61,8 +60,8 @@
     display: flex;
     flex-direction: row;
     padding: 5px;
-    width: 505px;
-    height: 68px;
+    width: 450px;
+    height: 58px;
 }
 
 .thumbnail__content__search:focus-within {
@@ -73,10 +72,10 @@
     border: none;
     width: 100%;
     background: transparent;
-    font-size: 35px;
+    font-size: 30px;
     margin-left: 5px;
-    height: 53px;
-    line-height: 100px;
+    height: 45px;
+    line-height: 80px;
     padding-top: 0px;
     padding-bottom: 0px;
 
@@ -97,8 +96,7 @@
 .link--login {
     background-color: #134B70;
     color: #FFFFFF;
-    margin-top: 20px;
-    margin-right: 15px;
+    margin-top: 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -115,6 +113,7 @@
     background-color: #134B70;
     border-radius: 10px;
     height: 60px;
+    margin-top: 50px;
 }
 
 .content-container__navigation-service ul {
@@ -159,21 +158,32 @@
 
 .content-container img {
     width: 650px;
-    height: 650px;
+    height: 500px;
 }
 
 .content-container__section div {
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 .content-container__section__title {
     font-weight: bold;
-    font-size: 40px;
-    max-width: 500px;
+    font-size: 30px;
+}
+.-title-saving{
+    max-width: 380px;
+}
+.-title-borrow{
+    max-width: 450px;
+}
+.-title-insurance{
+
+}
+.-title-number{
+
 }
 
 .content-container__section__text {
-    font-size: 20px;
+    font-size: 15px;
 
 }
 
@@ -209,9 +219,7 @@
     border-radius: 10px;
 }
 
-.content-container__section--max-width {
-    max-width: 650px;
-}
+
 
 .content-container__footer {
     margin-top: 100px;

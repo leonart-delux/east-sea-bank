@@ -4,38 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home_Login_Register</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+            crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/css/homeLoginRegister.css">
 </head>
-<body style="margin: 0px; background-color: #201E43">
+<body style="margin: 0px; background-color: #007bff">
 <div class="container">
     <div class="content-container">
-        <div class="content-container__navigation">
-            <p class="navigation__logo">East$eaBank</p>
-            <ul>
+        <div class="content-container__navigation row">
+            <p  class="navigation__logo col-5 align-items-center">East$eaBank</p>
+            <ul class="col-7 d-flex justify-content-end ">
                 <li><a href="#">Sản phẩm & dịch vụ</a></li>
                 <li><a href="#">Công cụ & Tiện ích</a></li>
                 <li><a href="#">Liên hệ & Hỗ trợ</a></li>
             </ul>
         </div>
-        <div class="content-container__thumbnail">
-            <div class="thumbnail__content">
-                <span style="font-size: 60px;font-weight: bold">Tiết kiệm và vay vốn ưu đãi </span>
-                <p style="font-size: 30px; margin-top:20px; font-weight: bold">Tìm kiếm điều bạn muốn!</p>
-                <div class="thumbnail__content__search">
-                    <img src="images/search-interface-symbol.png"
-                         style="width: 53px;height: 53px; margin-left: 1px; margin-top: 2px">
-                    <input type="text" class="searchInput" onclick="">
+        <div class="row">
+            <div class="col-6">
+                <div class="thumbnail__content">
+                    <span style="font-size: 55px;font-weight: bold">Tiết kiệm và vay vốn ưu đãi </span>
+                    <p style="font-size: 30px; margin-top:20px; font-weight: bold">Tìm kiếm điều bạn muốn!</p>
+                    <div class="thumbnail__content__search">
+                        <img src="images/search-interface-symbol.png"
+                             style="width: 40px;height: 40px; margin-left: 1px; margin-top: 2px">
+                        <input type="text" class="searchInput" onclick="">
+                    </div>
+                    <a class="container__form_link link--login"
+                       href="http://localhost:3000/login">
+                        Đăng nhập
+                    </a>
+                    <a class="container__form_link link--login"
+                       href="http://localhost:3000/sign-in/step-1">
+                        Đăng ký
+                    </a>
                 </div>
-                <a class="container__form_link link--login"
-                   href="http://localhost:3000/login">
-                    Đăng nhập
-                </a>
-                <a class="container__form_link link--login"
-                   href="http://localhost:3000/sign-in/step-1">
-                    Đăng ký
-                </a>
             </div>
-            <img src="images/sea-waves.png" style="width: 600px; height: 540px">
+            <div class="col-6">
+                <img src="images/sea-waves.png" style="width: 500px; height: 500px; align-items: end">
+            </div>
         </div>
         <div class="content-container__navigation-service">
             <ul>
@@ -53,11 +64,12 @@
                 </li>
             </ul>
         </div>
-        <div class="content-container__section">
-            <img src="images/piggy-bank.png">
-            <div class="content-container__section__saving content-container__section--max-width">
+
+        <div class="content-container__section row">
+            <img src="images/piggy-bank.png" class="col-auto col-md-6 ">
+            <div class="col-auto col-md-6">
                 <p>Sổ tiết kiệm</p>
-                <p class="content-container__section__title">Nâng tâm giá trị số tiền nhàn rỗi của bạn </p>
+                <p class="content-container__section__title -title-saving">Nâng tâm giá trị số tiền nhàn rỗi của bạn </p>
                 <p class="content-container__section__text">Chúng tôi cung cấp một loạt các gói gửi tiết kiệm đa dạng,
                     phù hợp với nhiều nhu cầu tài chính khác nhau,
                     từ ngắn hạn đến dài hạn. Khách hàng có thể dễ dàng lựa chọn
@@ -69,10 +81,10 @@
                 </a>
             </div>
         </div>
-        <div class="content-container__section">
-            <div class="content-container__section__borrowing content-container__section--max-width">
+        <div class="content-container__section row ">
+            <div class="col-auto col-md-6">
                 <p>Vay vốn</p>
-                <p class="content-container__section__title">Bạn cần tiền để bắt đầu xây dựng một doanh nghiệp? </p>
+                <p class="content-container__section__title -title-borrow">Bạn cần tiền để bắt đầu xây dựng một doanh nghiệp? </p>
                 <p class="content-container__section__text">Chúng tôi cung cấp nhiều gói vay vốn linh hoạt,
                     đáp ứng nhu cầu tài chính từ cá nhân đến doanh nghiệp. Các hình thức vay như tín chấp,
                     thế chấp, và vay tiêu dùng được thiết kế với lãi suất hợp lý, mang lại lợi ích tối đa cho khách
@@ -84,13 +96,13 @@
                     Xem thêm
                 </a>
             </div>
-            <img src="images/loan.png">
+            <img src="images/loan.png" class="col-auto col-md-6 ">
         </div>
-        <div class="content-container__section">
-            <img src="images/document.png">
-            <div class="content-container__section__insurance content-container__section--max-width">
+        <div class="content-container__section row">
+            <img src="images/document.png " class="col-auto col-md-6">
+            <div class="col-auto col-md-6">
                 <p>Bảo hiểm</p>
-                <p class="content-container__section__title">Cung cấp các gói bảo hiểm từ bên thứ ba </p>
+                <p class="content-container__section__title -title-insurance">Cung cấp các gói bảo hiểm từ bên thứ ba </p>
                 <p class="content-container__section__text">Chúng tôi cung cấp các gói bảo hiểm từ các đối tác bên
                     thứ ba uy tín, mang lại sự bảo vệ toàn diện cho khách hàng.
                     Với các giải pháp bảo hiểm chất lượng cao và chi phí hợp lý,
@@ -102,10 +114,10 @@
                 </a>
             </div>
         </div>
-        <div class="content-container__section">
-            <div class="content-container__section__beauty-number content-container__section--max-width">
+        <div class="content-container__section row ">
+            <div class="col-auto col-md-6">
                 <p>Tài khoản số đẹp</p>
-                <p class="content-container__section__title">Tạo số tài khoản như ý</p>
+                <p class="content-container__section__title -title-number">Tạo số tài khoản như ý</p>
                 <p class="content-container__section__text">Chúng tôi cung cấp dịch vụ tạo tài khoản số đẹp,
                     cho phép khách hàng lựa chọn số tài khoản theo ý muốn.
                     Những số tài khoản này mang ý nghĩa phong thủy,
@@ -116,7 +128,7 @@
                     Xem thêm
                 </a>
             </div>
-            <img src="images/premium-account.png">
+            <img src="images/premium-account.png" class="col-auto col-md-6">
         </div>
         <div class="content-container__slogan">
             <p class="content-container__slogan__text">EastSeaBank<br>
@@ -149,6 +161,20 @@
 
 
 </div>
-
+<script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"
+></script>
 </body>
 </html>
