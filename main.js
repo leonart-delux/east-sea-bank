@@ -13,6 +13,9 @@ liveReloadServer.server.once("connection", () => {
     }, 1);
 });
 const app = express();
+
+//Khi đăng nhập từ bước 1 sang bước 2 thì có lưu 2 thông tin là sdt và họ tên
+//Sử dụng session để lưu dữ liệu
 app.use(session({
     secret: "NhatKyVienPhuong",
     resave: false,
