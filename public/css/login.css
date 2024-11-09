@@ -2,7 +2,6 @@
     max-width: 700px;
     margin: auto;
     border: 1px solid red;
-    text-align: center;
     font-family: 'Baloo 2', cursive;
 }
 
@@ -15,11 +14,10 @@
     margin-top: 10px;
     font-size: 50px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .container__form {
-    display: flex;
-    flex-direction: column;
     max-width: 300px;
 }
 
@@ -34,11 +32,10 @@
 }
 
 .container__form__label {
-    text-align: left;
     margin-left: 20px;
-    margin-top: 20px;
-
+    margin-bottom: 0;
 }
+
 
 .icon--show-password {
     background: url("/images/view.png") no-repeat calc(100% - 10px) center;
@@ -121,6 +118,7 @@
     background: url("/images/upload.png") no-repeat center;
     background-size: 25px;
     border: 2px solid #134B70;
+    width: 100%;
 }
 
 .container__form__policy {
@@ -142,6 +140,7 @@
     cursor: pointer;
     outline: none;
 }
-.container__form__policy__checkbox:hover{
+
+.container__form__policy__checkbox:hover {
     background-color: #007bff;
 }
