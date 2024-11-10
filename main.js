@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import session from "express-session"
 import userService from "./service/userService.js";
 
+
 const liveReloadServer = livereload.createServer();
 liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
@@ -36,6 +37,7 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', './views');
 app.use(express.static('./public'));
+app.use('/images', express.static('images'));
 
 // Home page routing
 app.get('/', function (req, res) {
