@@ -84,7 +84,7 @@ app.use('/logged/passbook', passbookRouter);
 app.use('/logged/loan', loanRouter);
 
 // Pay debt routing 
-app.use('/logged/debts/');
+app.use('/logged/debts', debtRouter);
 
 // Listen on port
 app.listen(3000, function () {
