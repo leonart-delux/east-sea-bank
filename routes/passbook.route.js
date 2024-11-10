@@ -1,12 +1,13 @@
 import express from 'express';
+import app from "express-session/session/memory.js";
 
 const router = express.Router();
 
-app.get('/', function (req, res) {
+router.get('/', function (req, res) {
     res.render('vwPassbook/passbook');
 });
 
-app.get('/inspect', function (req, res) {
+router.get('/inspect', function (req, res) {
     res.render('vwPassbook/inspect');
 });
 
