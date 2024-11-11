@@ -29,7 +29,6 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-app.use('/images', express.static('images'));
 //Module cho việc parse dữ liệu trong form thành json
 app.use(bodyParser.urlencoded({extend: true}));
 app.use(bodyParser.json());

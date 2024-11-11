@@ -3,12 +3,12 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/', function (req, res) {
-    res.render('transfer');
+    res.render('vwTransfer/transferDefault');
 });
 
 // Transfer routing - step 1
 router.get('/step-1', function (req, res) {
-    res.render('vwTransfer/transaction/step-1');
+    res.render('vwTransfer/step-1');
 });
 
 // Transfer routing - step 2
