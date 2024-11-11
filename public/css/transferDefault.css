@@ -1,0 +1,143 @@
+.navigation__transfer__option {
+    border: none;
+    border-radius: 17px;
+    background-color: #134B70;
+    padding: 0 !important;
+}
+
+.navigation__transfer__option li {
+    padding: 0;
+    border-radius: 17px;
+}
+
+.navigation__transfer__option a {
+    border-radius: 14px !important;
+    font-size: 15px !important;
+    font-weight: bold;
+    text-align: center !important;
+    color: white;
+    margin: 0 !important;
+
+}
+
+.directory {
+    background-color: rgba(80, 140, 155, 0.2);
+    border-radius: 10px;
+
+}
+
+.button--check {
+    font-size: 15px;
+    color: #508C9B;
+    background-color: transparent;
+
+}
+
+.input--stk {
+    font-size: 13px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.input--stk:focus {
+    font-size: 13px;
+    background-color: transparent;
+    border: none !important;
+    color: white;
+    font-weight: bold;
+}
+
+
+.form--stk {
+    background-color: rgba(217, 217, 217, 0.1);
+    border-radius: 10px;
+    margin-right: 0;
+}
+
+.form--stk a {
+    /*style="margin-top: 2px; font-size: 13px; padding: 0"*/
+    font-size: 13px;
+    padding: 0;
+    text-decoration: none;
+    align-items: center;
+}
+
+.bank--selection {
+    height: 35px;
+}
+
+.selection__img {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+
+/*Cho toggle button*/
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, ".SFNSText-Regular", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+}
+
+.toggle {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.toggle-switch {
+    display: inline-block;
+    background: #ccc;
+    border-radius: 20px; /* Điều chỉnh kích thước border-radius */
+    width: 50px; /* Điều chỉnh chiều rộng */
+    height: 20px; /* Điều chỉnh chiều cao */
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+
+.toggle-switch:before, .toggle-switch:after {
+    content: "";
+}
+
+.toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    width: 14px; /* Điều chỉnh kích thước nút */
+    height: 14px; /* Điều chỉnh kích thước nút */
+    position: absolute;
+    top: 3px; /* Điều chỉnh vị trí nút */
+    left: 3px; /* Điều chỉnh vị trí nút */
+    transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+    background: rgba(80, 140, 155, 0.7);
+}
+
+.toggle-checkbox:checked + .toggle-switch:before {
+    left: 33px; /* Điều chỉnh vị trí nút khi bật */
+}
+
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+
+/*Classes for toggle Button*/
+
+
