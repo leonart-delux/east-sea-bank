@@ -1,6 +1,8 @@
 .transfer__container {
-    background-color: #232143;
     width: 60%;
+    margin-top: -300px!important;
+    background-color: rgba(35, 33, 67, 0.8);
+    border-radius: 15px;
 }
 
 
