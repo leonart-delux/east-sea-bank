@@ -1,6 +1,6 @@
 .transfer__container {
     width: 60%;
-    margin-top: -300px!important;
+    margin-top: -300px !important;
     background-color: rgba(35, 33, 67, 0.8);
     border-radius: 15px;
 }
@@ -135,13 +135,32 @@
     background-color: transparent;
     border: none;
 }
-.directory__list__account__list{
+
+.directory__list__account__list {
     background-color: rgba(80, 140, 155, 0.2);
     height: 300px;
     border-radius: 10px;
 }
 
+.button--continue {
+    background-color: transparent;
+    text-align: left;
+    border-radius: 20px;
+    border: 2px solid; /* Không có border mặc định */
+    padding: 4px;
+}
 
+.button--continue:hover {
+    border: 2px solid #508C9B; /* Thêm border khi hover */
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 4px;
+
+}
+
+.select2-container--default {
+    width: 300px !important; /* You can adjust this value as needed */
+}
 
 
 /*Cho toggle button*/
