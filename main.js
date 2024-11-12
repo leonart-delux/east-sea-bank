@@ -5,7 +5,7 @@ import livereload from 'livereload';
 import connectLiveReload from 'connect-livereload'
 import bodyParser from "body-parser";
 import session from "express-session"
-
+import numeral from 'numeral';
 import signinRouter from './routes/signin.route.js';
 import transferRouter from './routes/transfer.route.js';
 import savingRouter from './routes/saving.route.js';
@@ -40,6 +40,12 @@ app.use(connectLiveReload());
 // Config express and use 
 app.engine('hbs', engine({
     extname: 'hbs',
+    helpers:{
+        format_number(value) {
+            return numeral(value).format('0,0');
+        },
+
+    }
 }));
 app.set('view engine', 'hbs');
 app.set('views', './views');
