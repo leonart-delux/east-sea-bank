@@ -1,3 +1,9 @@
+.transfer__container {
+    background-color: #232143;
+    width: 60%;
+}
+
+
 .navigation__transfer__option {
     border: none;
     border-radius: 17px;
@@ -68,11 +74,72 @@
     height: 35px;
 }
 
+.form-group .bank--selection {
+    max-width: 100%; /* Đảm bảo thành phần không tràn ra ngoài */
+    width: 100%; /* Chiếm toàn bộ chiều rộng của cột chứa */
+}
+
 .selection__img {
     width: 25px;
     height: 25px;
     margin-bottom: 5px;
 }
+
+.directory__list {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.directory__list__nav {
+    border: none;
+
+}
+
+.directory__list__nav button {
+    color: white;
+    border-radius: 30px !important;
+    padding: 0 10px;
+}
+
+.nav-link {
+    background-color: transparent; /* Bỏ giá trị nền mặc định */
+}
+
+.directory__list__nav button {
+    color: white; /* Màu trắng cho các nút không được chọn */
+    background-color: transparent !important;
+    border: none;
+}
+
+.directory__list__nav button.active {
+    color: #508C9B !important; /* Màu tùy chỉnh cho các nút được chọn */
+    background-color: transparent !important;
+    border: none;
+}
+
+.directory__list__nav button[aria-selected="true"] {
+    color: #508C9B !important; /* Màu tùy chỉnh khi nút được chọn */
+    background-color: transparent !important;
+    border: none;
+}
+
+.directory__list__nav button:not([aria-selected="true"]) {
+    color: white; /* Giữ màu trắng khi nút không được chọn */
+    background-color: transparent !important;
+    border: none;
+}
+
+.button--search {
+    background-color: transparent;
+    border: none;
+}
+.directory__list__account__list{
+    background-color: rgba(80, 140, 155, 0.2);
+    height: 300px;
+    border-radius: 10px;
+}
+
+
 
 
 /*Cho toggle button*/

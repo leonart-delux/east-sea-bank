@@ -1,102 +1,167 @@
-<div class="container mt-5">
-    <ul class="nav nav-tabs col-md-4 navigation__transfer__option" id="myTab" role="tablist">
-        <li class="nav-item col-md-6 " role="presentation">
-            <a class="nav-link  active" id="home-tab" data-toggle="tab"
-               href="#home" role="tab" aria-controls="home" aria-selected="true">Nội bộ ESB</a>
-        </li>
-        <li class="nav-item col-md-6 " role="presentation">
-            <a class="nav-link " id="profile-tab" data-toggle="tab"
-               href="#profile" role="tab" aria-controls="profile"
-               aria-selected="false">Ngoài ESB</a></li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade   col-md-4 directory mt-2 " id="home" role="tabpanel"
-             aria-labelledby="home-tab">
-            <div class="directory__content">
-                <div class="row pt-3 mb-1">
-                    <span class="col-8">Cùng chủ tài khoản</span>
-                    <div class="col-4 d-flex justify-content-center">
-                        <div class="col-sm-5">
-                            <label class="toggle">
-                                <input class="toggle-checkbox" type="checkbox">
-                                <div class="toggle-switch"></div>
-                            </label>
+<div class="container mt-5  transfer__container  mx-auto ">
+    <div class="row">
+        <a href="#" class="ml-3"><img src="/arrow.png" style="width: 25px; height: 25px"></a>
+        <span class="  mt-1  col-2" style="font-weight: bold ">Chuyển tiền</span>
+    </div>
+
+    <div class="container  mt-3 ">
+        <div class="row mx-0 w-100 justify-content-center">
+            <div class="col-12 col-lg-5 ">
+                <ul class="nav nav-tabs navigation__transfer__option" id="myTab" role="tablist">
+                    <li class="nav-item col-md-6 " role="presentation">
+                        <a class="nav-link  active" id="home-tab" data-toggle="tab"
+                           href="#home" role="tab" aria-controls="home" aria-selected="true">Nội bộ ESB</a>
+                    </li>
+                    <li class="nav-item col-md-6 " role="presentation">
+                        <a class="nav-link " id="profile-tab" data-toggle="tab"
+                           href="#profile" role="tab" aria-controls="profile"
+                           aria-selected="false">Ngoài ESB</a></li>
+                </ul>
+                <div class="tab-content " id="myTabContent">
+                    <div class="tab-pane fade col-12 directory mt-2 " id="home" role="tabpanel"
+                         aria-labelledby="home-tab">
+                        <div class="directory__content">
+                            <div class="row pt-3 mb-1">
+                                <span class="col-8">Cùng chủ tài khoản</span>
+                                <div class="col-4 d-flex justify-content-center">
+                                    <div class="col-sm-5">
+                                        <label class="toggle">
+                                            <input class="toggle-checkbox" type="checkbox">
+                                            <div class="toggle-switch"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <form>
+                                <div class="form-group ">
+                                    <label class="col-12" style="padding-left: 0">Số tài khoản</label>
+                                    <div class="row form--stk " style="margin-left:0">
+                                        <input type="text" name="" id="" class="form-control col-9  input--stk "
+                                               placeholder=""
+                                               aria-describedby="helpId">
+                                        <a type="button"
+                                           class=" button--check col-3 d-flex align-item-center justify-content-center"
+                                        >Kiểm tra</a>
+                                    </div>
+                                </div>
+                                <button class="btn   mb-3 px-4"
+                                        style="border-radius: 15px; background-color: #134B70; color:white">Tiếp tục
+                                </button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show active directory col-12  mt-2 " id="profile" role="tabpanel"
+                         aria-labelledby="profile-tab">
+                        <div class="directory__content">
+                            <form>
+                                <div class="form-group row pt-3 mb-1">
+                                    <label class="col-12">Lựa chọn ngân hàng</label>
+                                    <div class="col-12">
+                                        <select class="form-control bank--selection col-6 " name="" id="customSelect">
+                                            <option value="bidv.jpg">
+                                                BIDV
+                                            </option>
+                                            <option value="angrybank.png">
+                                                AngryBank
+                                            </option>
+                                            <option value="tpbank.jpg">
+                                                TP Bank
+                                            </option>
+                                            <option value="ocean.png">
+                                                Ocean Bank
+                                            </option>
+                                            <option value="vcb.jpg">
+                                                Vietcombank
+                                            </option>
+                                            <option value="scb.jpg">
+                                                Sacombank
+                                            </option>
+                                            <option value="vip.jpg">
+                                                VIB
+                                            </option>
+                                            <option value="tech.jpg">
+                                                Techcombank
+                                            </option>
+                                            <option value="donga.jpg">
+                                                Dong A Bank
+                                            </option>
+                                            <option value="acb.png">
+                                                ACB
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group pb-3 mb-0">
+                                    <label class="col-12" style="padding-left: 0">Số tài khoản</label>
+
+                                    <div class="row form--stk " style="margin-left:0">
+                                        <input type="text" name="" id="" class="form-control col-9  input--stk "
+                                               placeholder=""
+                                               aria-describedby="helpId">
+                                        <a type="button"
+                                           class=" button--check col-3 d-flex align-item-center justify-content-center"
+                                        >Kiểm tra</a>
+                                    </div>
+                                </div>
+                                <button class="btn px-4 mb-3"
+                                        style="border-radius: 15px; background-color: #134B70; color:white">Tiếp tục
+                                </button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
-                <form>
-                    <div class="form-group pb-3">
-                        <label class="col-12" style="padding-left: 0">Số tài khoản</label>
-                        <div class="row form--stk " style="margin-left:0">
-                            <input type="text" name="" id="" class="form-control col-9  input--stk " placeholder=""
-                                   aria-describedby="helpId">
-                            <a type="button"
-                               class=" button--check col-3 d-flex align-item-center justify-content-center"
-                            >Kiểm tra</a>
-                        </div>
-                    </div>
-                </form>
-
             </div>
-        </div>
-        <div class="tab-pane fade show active  col-md-4 directory mt-2 " id="profile" role="tabpanel"
-             aria-labelledby="profile-tab">
-            <div class="directory__content">
+            <div class="col-12 col-lg-5 directory__list">
+                <div class="mt-2">
+                    <nav>
+                        <div class="nav nav-tabs directory__list__nav" id="nav-tab" role="tablist">
+                            <button class="nav-link my-0 active" id="nav-home-tab" data-toggle="tab"
+                                    data-target="#nav-home"
+                                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Danh bạ
+                            </button>
+                            <button class="nav-link my-0 ml-4" id="nav-profile-tab" data-toggle="tab"
+                                    data-target="#nav-profile"
+                                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Gần đây
+                            </button>
+                        </div>
+                    </nav>
+                    <div class="row form--stk " style="margin-left:0">
+                        <button type="button"
+                                class=" button--search col-1 d-flex align-item-center justify-content-center px-1"
+                        ><img src="/search-interface-symbol.png" style="width: 25px; height: 25px; display: inline-block;
+margin-top: 3px"></button>
+                        <input type="text" name="" id="" class="form-control col-11  input--stk "
+                               placeholder=""
+                               aria-describedby="helpId">
+                    </div>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane show active " id="nav-home" role="tabpanel"
+                             aria-labelledby="nav-home-tab">
 
-                <form>
-                    <div class="form-group row pt-3 mb-1">
-                        <label class="col-12">Lựa chọn ngân hàng</label>
-                        <div class="col-12">
-                            <select class="form-control bank--selection " name="" id="customSelect">
-                                <option value="bidv.jpg" >
-                                    BIDV
-                                </option>
-                                <option value="angrybank.png" >
-                                    AngryBank
-                                </option>
-                                <option value="tpbank.jpg" >
-                                    TP Bank
-                                </option>
-                                <option value="ocean.png" >
-                                    Ocean Bank
-                                </option>
-                                <option value="vcb.jpg" >
-                                    Vietcombank
-                                </option>
-                                <option value="scb.jpg" >
-                                    Sacombank
-                                </option>
-                                <option value="vip.jpg" >
-                                    VIB
-                                </option>
-                                <option value="tech.jpg" >
-                                    Techcombank
-                                </option>
-                                <option value="donga.jpg" >
-                                    Dong A Bank
-                                </option>
-                                <option value="acb.png" >
-                                    ACB
-                                </option>
-                            </select>
+                            <div class="directory__list__account__list my-3">
+                                <div class="container pt-2">
+                                    <p class="my-0 mt-2" style="font-weight: bold; color: #134B70; font-size: 20px">NGUYEN TRUONG</p>
+                                    <p class="my-0" style="font-size: 15px">0971487037</p>
+                                    <p style="font-size: 15px">ESB</p>
+                                    <p class="my-0 mt-2" style="font-weight: bold; color: #134B70; font-size: 20px">NGUYEN TRUONG</p>
+                                    <p class="my-0" style="font-size: 15px">0971487037</p>
+                                    <p style="font-size: 15px">ESB</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            .2..
                         </div>
                     </div>
-                    <div class="form-group pb-3">
-                        <label class="col-12" style="padding-left: 0">Số tài khoản</label>
-
-                        <div class="row form--stk " style="margin-left:0">
-                            <input type="text" name="" id="" class="form-control col-9  input--stk " placeholder=""
-                                   aria-describedby="helpId">
-                            <a type="button"
-                               class=" button--check col-3 d-flex align-item-center justify-content-center"
-                            >Kiểm tra</a>
-                        </div>
-                    </div>
-                </form>
-
+                </div>
             </div>
         </div>
     </div>
+
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Select2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
