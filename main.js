@@ -45,7 +45,7 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', './views');
 app.use(express.static('./public'));
-app.use('/images', express.static('images'));
+app.use(express.static('./images'));
 
 
 // Home page routing
