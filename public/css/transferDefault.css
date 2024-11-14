@@ -17,6 +17,9 @@
     padding: 0;
     border-radius: 17px;
 }
+.widthTest{
+    width: 200px;
+}
 
 .navigation__transfer__option a {
     border-radius: 14px !important;
@@ -77,8 +80,8 @@
 }
 
 .form-group .bank--selection {
-    max-width: 100%; /* Đảm bảo thành phần không tràn ra ngoài */
-    width: 100%; /* Chiếm toàn bộ chiều rộng của cột chứa */
+    /*max-width: 100%; !* Đảm bảo thành phần không tràn ra ngoài *!*/
+    /*width: 100%; !* Chiếm toàn bộ chiều rộng của cột chứa *!*/
 }
 
 .selection__img {
@@ -138,8 +141,9 @@
 
 .directory__list__account__list {
     background-color: rgba(80, 140, 155, 0.2);
-    height: 300px;
+    max-height: 300px;
     border-radius: 10px;
+    overflow-y: auto;
 }
 
 .button--continue {
@@ -160,6 +164,11 @@
 
 .select2-container--default {
     width: 300px !important; /* You can adjust this value as needed */
+}
+
+
+.bigdrop {
+    width: 600px !important;
 }
 
 
