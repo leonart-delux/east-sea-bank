@@ -1,9 +1,12 @@
 import express from 'express';
-
+import transferService from "../service/transferService.js";
 const router = express.Router();
 
-router.get('/', function (req, res) {
-    res.render('vwTransfer/transferDefault');
+router.get('/',  async function (req, res) {
+    const directoryList = transferService.getDirectoryList();
+    res.render('vwTransfer/transferDefault',{
+        directoryList: directoryList,
+    });
 });
 
 router.post('/', function (req, res) {
@@ -43,9 +46,14 @@ router.get('/transfer-confirm', function (req, res) {
     });
 });
 
+router.post('/transfer-confirm', function (req, res) {
+    res.redirect('/logged/transfer/transfer-finished');
+});
+
 // Transfer routing - step 3
-router.get('/step-3', function (req, res) {
-    res.render('vwTransfer/transfer3');
+router.get('/transfer-finished', function (req, res) {
+
+    res.render('vwTransfer/transfer-finished');
 });
 
 export default router;
