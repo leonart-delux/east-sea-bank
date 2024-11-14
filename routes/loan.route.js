@@ -3,7 +3,7 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/', function (req, res) {
-    res.render('vwLoan/loan');
+    res.render('vwLoan/loan-types_of_loan');
 });
 
 // Loan routing - step 1
