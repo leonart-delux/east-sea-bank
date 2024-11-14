@@ -7,8 +7,8 @@ router.get('/', function (req, res) {
 });
 
 // Loan routing - step 1
-router.get('/make-a-loan/step-1', function (req, res) {
-    res.render('vwLoan/loan1');
+router.get('/make-a-loan/policy', function (req, res) {
+    res.render('vwLoan/loan-policy');
 });
 
 // Loan routing - step 2
