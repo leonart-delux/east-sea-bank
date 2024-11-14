@@ -11,7 +11,7 @@
  Target Server Version : 100427 (10.4.27-MariaDB)
  File Encoding         : 65001
 
- Date: 07/11/2024 23:37:30
+ Date: 14/11/2024 22:37:17
 */
 
 SET NAMES utf8mb4;
@@ -36,6 +36,10 @@ CREATE TABLE `chuyen_tien`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of chuyen_tien
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for khach_hang
 -- ----------------------------
 DROP TABLE IF EXISTS `khach_hang`;
@@ -43,7 +47,6 @@ CREATE TABLE `khach_hang`  (
   `Ma_KH` bigint NOT NULL AUTO_INCREMENT,
   `Ho_Ten` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `SDT` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `Dia_Chi` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `Ngay_Sinh` date NULL DEFAULT NULL,
   `Email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `CCCD` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -58,7 +61,12 @@ CREATE TABLE `khach_hang`  (
   `dia_chi_lien_he` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `trang_thai` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`Ma_KH`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of khach_hang
+-- ----------------------------
+INSERT INTO `khach_hang` VALUES (4, 'Nguyen Truong', '0971487037', '2004-09-15', 'Nguyentruongpro19@gmail.com', '045204999232', '2024-11-07', 50, '2023-09-15', 'Quang Tri', 'male', 'Viet Nam', 'Quang Tri', 'Di An Binh Duong', 'Di An Binh Duong', 'Pending');
 
 -- ----------------------------
 -- Table structure for khoan_vay
@@ -79,6 +87,10 @@ CREATE TABLE `khoan_vay`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of khoan_vay
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for ky_han
 -- ----------------------------
 DROP TABLE IF EXISTS `ky_han`;
@@ -90,6 +102,10 @@ CREATE TABLE `ky_han`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of ky_han
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for loai_hinh_tiet_kiem
 -- ----------------------------
 DROP TABLE IF EXISTS `loai_hinh_tiet_kiem`;
@@ -98,6 +114,10 @@ CREATE TABLE `loai_hinh_tiet_kiem`  (
   `Ten_Loai_Hinh` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`Ma_Loai_Hinh`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of loai_hinh_tiet_kiem
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for nhan_vien
@@ -113,6 +133,10 @@ CREATE TABLE `nhan_vien`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of nhan_vien
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for tai_khoan
 -- ----------------------------
 DROP TABLE IF EXISTS `tai_khoan`;
@@ -125,6 +149,10 @@ CREATE TABLE `tai_khoan`  (
   INDEX `fk_tai_khoan_khach_hang_idx`(`Ma_KH` ASC) USING BTREE,
   CONSTRAINT `fk_tai_khoan_khach_hang` FOREIGN KEY (`Ma_KH`) REFERENCES `khach_hang` (`Ma_KH`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tai_khoan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for thanh_toan_vay
@@ -142,6 +170,10 @@ CREATE TABLE `thanh_toan_vay`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of thanh_toan_vay
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for tuy_chon_sau_khi_het_han
 -- ----------------------------
 DROP TABLE IF EXISTS `tuy_chon_sau_khi_het_han`;
@@ -150,6 +182,10 @@ CREATE TABLE `tuy_chon_sau_khi_het_han`  (
   `Ten_Tuy_Chon` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`Ma_Tuy_Chon`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tuy_chon_sau_khi_het_han
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for vi_tiet_kiem
@@ -175,5 +211,9 @@ CREATE TABLE `vi_tiet_kiem`  (
   CONSTRAINT `FK_ViTietKiem_TaiKhoan` FOREIGN KEY (`So_Tai_Khoan`) REFERENCES `tai_khoan` (`So_Tai_Khoan`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_ViTietKiem_TuyChonSauKhiHetHan` FOREIGN KEY (`Ma_Tuy_Chon`) REFERENCES `tuy_chon_sau_khi_het_han` (`Ma_Tuy_Chon`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of vi_tiet_kiem
+-- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;
