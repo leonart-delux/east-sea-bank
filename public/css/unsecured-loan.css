@@ -1,0 +1,23 @@
+.credit-limit {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    color: white;
+
+}
+
+.input-credit-limit {
+    background-color: transparent;
+    border: none;
+}
+
+.custom-popover {
+    max-width: 300px; /* Đặt chiều rộng tối đa cho Popover */
+}
+.loan-purpose {
+    border-radius: 10px;
+    background-color: rgba(217, 217, 217, 0.2);
+}
+.credit--info{
+    background-color: rgba(217, 217, 217, 0.2);
+    border-radius: 10px;
+}
