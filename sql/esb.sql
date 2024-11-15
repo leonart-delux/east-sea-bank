@@ -11,7 +11,7 @@
  Target Server Version : 100427 (10.4.27-MariaDB)
  File Encoding         : 65001
 
- Date: 14/11/2024 22:37:17
+ Date: 15/11/2024 22:10:31
 */
 
 SET NAMES utf8mb4;
@@ -214,6 +214,26 @@ CREATE TABLE `vi_tiet_kiem`  (
 
 -- ----------------------------
 -- Records of vi_tiet_kiem
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for yeu_cau_vay
+-- ----------------------------
+DROP TABLE IF EXISTS `yeu_cau_vay`;
+CREATE TABLE `yeu_cau_vay`  (
+  `Ma_Yeu_Cau` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `So_Tai_Khoan` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Loai_Vay` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `Khoan_Vay` int NULL DEFAULT NULL,
+  `Ngay_Yeu_Cau` date NULL DEFAULT NULL,
+  `Trang_Thai` tinyint(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`Ma_Yeu_Cau`) USING BTREE,
+  INDEX `So_Tai_Khoan`(`So_Tai_Khoan` ASC) USING BTREE,
+  CONSTRAINT `yeu_cau_vay_ibfk_1` FOREIGN KEY (`So_Tai_Khoan`) REFERENCES `tai_khoan` (`So_Tai_Khoan`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of yeu_cau_vay
 -- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;
