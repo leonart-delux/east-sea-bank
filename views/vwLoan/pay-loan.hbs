@@ -1,0 +1,100 @@
+<div class="container mt-5  transfer__container  mx-auto shadow "
+     style="margin-top: -250px!important;
+font-size: 1.25rem; /* Kích thước chữ */ font-weight: 400;">
+    <div class="row pt-3 pb-2">
+        <a href="#" class="ml-3"><img src="/arrow.png" style="width: 25px; height: 25px"></a>
+        <span class="    col-4" style="font-weight: bold ">Thanh toán khoản vay</span>
+    </div>
+    <div class="container mt-3 px-4">
+        <div class="font-weight-bold mb-3">Thông tin khoản vay</div>
+        <form action="" method="post">
+            <div class="form-group credit-limit px-3 text-dark">
+                <label class="mb-1 font-weight-bold" for="loanId" style="cursor: pointer;"> Hợp đồng vay</label>
+                <select class=" input-credit-limit form-control px-0 " style="margin-left: -4px"
+                        id="loanId" name="loanId">
+                    <option disabled selected hidden>Chọn hợp đồng vay bạn muốn thanh toán</option>
+                    <option></option>
+                    <option></option>
+                </select>
+            </div>
+            <div class="form-group  credit-limit px-3 text-dark ">
+                <label class="mb-2 font-weight-bold " for="loanAccount" style="cursor: pointer "> Tài khoản vay</label>
+                <div class="row">
+                    <input class="col-11  input-credit-limit form-control " style="padding: 0 15px"
+                           id="loanAccount" placeholder="Cái này nó tự nhảy ra sau khi chọn hợp đồng vay đúng không?"
+                           name="loanAccount">
+                    <p class="col-1">VND</p>
+                </div>
+
+            </div>
+            <div class="  credit-limit px-3 text-dark py-3">
+                <div class="row d-flex justify-content-between mb-3">
+                    <div class="col-4">
+                        Sản phẩm
+                    </div>
+                    <div class="col-4 text-right">
+                        Vay tiền tín chấp
+                    </div>
+
+                </div>
+                <div class="row d-flex justify-content-between mb-3">
+                    <div class="col-4">
+                        Dư nợ gốc hiện tại
+                    </div>
+                    <div class="col-4 text-right">
+                        100,000,000 VND
+                    </div>
+
+                </div>
+                <div class="row d-flex justify-content-between ">
+                    <div class="col-4">
+                        Dư nợ gốc đến hạn
+                    </div>
+                    <div class="col-4 text-right">
+                        20,000,000 VND
+                    </div>
+
+                </div>
+            </div>
+            <div class="font-weight-bold my-3">Thanh toán khoản vay</div>
+            <div class="form-group credit-limit px-3 text-dark">
+                <label class="mb-1 font-weight-bold" for="loanMethod" style="cursor: pointer;"> Hợp đồng vay</label>
+                <select class=" input-credit-limit form-control px-0 " style="margin-left: -4px"
+                        id="loanMethod" name="loanMethod">
+                    <option selected>Dư nợ gốc đến hạn</option>
+                    <option>Thanh toán hết</option>
+                </select>
+            </div>
+            <div class="form-group  credit-limit px-3 text-dark ">
+                <label class="mb-2 font-weight-bold " for="loanAccount" style="cursor: pointer ">Số tiền</label>
+                <div class="row">
+                    <input class="col-11  input-credit-limit form-control " style="padding: 0 15px"
+                           id="loanAccount" placeholder="Cái này mình có quyền nhập số tiền thanh toán hay sao?"
+                           name="loanAccount">
+                    <p class="col-1">VND</p>
+                </div>
+
+            </div>
+            <div class="row  ">
+                <div class=" col-md-1  px-0 d-flex justify-content-center mr-lg-n3 mr-md-1">
+                    <div class="round">
+                        <input type="checkbox" checked id="checkbox"/>
+                        <label for="checkbox" style=""></label>
+                    </div>
+                </div>
+                <label for="checkbox" class="col-md-10 pl-0 text-lg-left text-sm-center "
+                       style="color: gray; font-size: 12px; cursor: pointer">
+                    Tôi đéo cam kết, Tôi đéo cam kết, Tôi đéo cam kết, Tôi đéo cam kết.
+                </label>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <button class="btn mb-3 col-5 btn--continue mt-3" type="submit"
+                        style="border-radius: 15px; background-color: #134B70; color:white; ">Thanh toán
+                </button>
+            </div>
+        </form>
+
+
+    </div>
+
+</div>
