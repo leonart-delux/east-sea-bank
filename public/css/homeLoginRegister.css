@@ -15,6 +15,7 @@
 .navigation__logo {
     font-weight: bold;
     font-size: 50px;
+    color: #ffffff;
 }
 
 .content-container__navigation li {
@@ -26,7 +27,7 @@
 .content-container__navigation li a {
     text-decoration: none;
     font-weight: bold;
-    color: red;
+    color: rgb(255, 255, 255);
     font-size: 16px;
 }
 
@@ -49,6 +50,7 @@
     max-width: 510px;
     word-wrap: break-word; /* Cho phép xuống hàng */
     overflow: hidden;
+    color: #FFFFFF;
 }
 
 .thumbnail__content__search {
@@ -114,6 +116,7 @@
     border-radius: 10px;
     height: 60px;
     margin-top: 50px;
+    color: #ffffff;
 }
 
 .content-container__navigation-service ul {
@@ -148,6 +151,7 @@
     flex-direction: row;
     margin-top: 40px;
     justify-content: space-between;
+    color: #FFFFFF;
 }
 
 .btn--info {
@@ -248,7 +252,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
+    color: #9BA1DA;
 }
 
 .content-container__footer__second-line-info {
