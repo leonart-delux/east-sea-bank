@@ -1,9 +1,44 @@
 import express from 'express';
-import { engine } from 'express-handlebars';
-import path from 'path';
+import {engine} from 'express-handlebars';
 
+import livereload from 'livereload';
+import connectLiveReload from 'connect-livereload'
+import bodyParser from "body-parser";
+import session from "express-session"
+
+import signinRouter from './routes/signin.route.js';
+import transferRouter from './routes/transfer.route.js';
+import savingRouter from './routes/saving.route.js';
+import passbookRouter from './routes/passbook.route.js';
+import loanRouter from './routes/loan.route.js';
+import debtRouter from './routes/debt.route.js';
+
+
+const liveReloadServer = livereload.createServer();
+liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+        liveReloadServer.refresh("/");
+    }, 1);
+});
 const app = express();
 
+//Khi đăng nhập từ bước 1 sang bước 2 thì có lưu 2 thông tin là sdt và họ tên
+//Sử dụng session để lưu dữ liệu
+app.use(session({
+    secret: "NhatKyVienPhuong",
+    resave: false,
+    saveUninitialized: true
+}));
+app.use('/images', express.static('images'));
+//Module cho việc parse dữ liệu trong form thành json
+app.use(bodyParser.urlencoded({extend: true}));
+app.use(bodyParser.json());
+
+//module dùng cho việc auto reload server khi thay đổi code
+//npm run watch để run
+app.use(connectLiveReload());
+
+// Config express and use 
 app.engine('hbs', engine({
     extname: 'hbs',
 }));
@@ -12,125 +47,44 @@ app.set('views', './views');
 app.use(express.static('./public'));
 app.use('/images', express.static('images'));
 
+
 // Home page routing
 app.get('/', function (req, res) {
-    res.render('home');
+    res.render('home_login_register', {
+        layout: false
+    });
 });
 
 // Log in routing
 app.get('/login', function (req, res) {
-    res.render('login');
-})
+    res.render('login'
+        , {
+            layout: false
+        });
+});
 
-// Sign in routing - step 1
-app.get('/sign-in/step-1', function (req, res) {
-    res.render('signin1');
-})
-
-// Sign in routing - step 2
-app.get('/sign-in/step-2', function (req, res) {
-    res.render('signin2');
-})
-
-// Sign in routing - step 3
-app.get('/sign-in/step-3', function (req, res) {
-    res.render('signin3');
-})
+// Sign-in routing
+app.use('/sign-in', signinRouter);
 
 // Logged routing
 app.get('/logged/home', function (req, res) {
-    res.render('logged');
-})
+    res.render('home');
+});
 
 // Transfer routing
-app.get('/logged/tranfser', function (req, res) {
-    res.render('transfer');
-})
+app.use('/logged/transfer', transferRouter);
 
-// Transfer routing - step 1
-app.get('/logged/tranfser-step-1', function (req, res) {
-    res.render('transfer1');
-})
-
-// Transfer routing - step 2
-app.get('/logged/tranfser-step-2', function (req, res) {
-    res.render('transfer2');
-})
-
-// Transfer routing - step 3
-app.get('/logged/tranfser-step-3', function (req, res) {
-    res.render('transfer3');
-})
-
-// Saving routing - step 1
-app.get('/logged/saving-step-1', function (req, res) {
-    res.render('saving1');
-})
-
-// Saving routing - step 2
-app.get('/logged/saving-step-2', function (req, res) {
-    res.render('saving2');
-})
-
-// Saving routing - step 3
-app.get('/logged/saving-step-3', function (req, res) {
-    res.render('saving3');
-})
-
-// Saving routing - step 4
-app.get('/logged/saving-step-4', function (req, res) {
-    res.render('saving4');
-})
+// Saving routing
+app.use('/logged/saving', savingRouter);
 
 // Passbook routing 
-app.get('/logged/passbook', function (req, res) {
-    res.render('passbook');
-})
-
-// Passbook routing - step 2
-app.get('/logged/passbook/inspect', function (req, res) {
-    res.render('inspectPassbook');
-})
+app.use('/logged/passbook', passbookRouter);
 
 // Loan routing 
-app.get('/logged/loan', function (req, res) {
-    res.render('loan');
-})
-
-// Loan routing - step 1
-app.get('/logged/loan/make-a-loan-step-1', function (req, res) {
-    res.render('loan1');
-})
-
-// Loan routing - step 2
-app.get('/logged/loan/make-a-loan-step-2', function (req, res) {
-    res.render('loan2');
-})
-
-// Loan routing - step 3
-app.get('/logged/loan/make-a-loan-step-3', function (req, res) {
-    res.render('loan3');
-})
-
-// Loan routing - step 4
-app.get('/logged/loan/make-a-loan-step-4', function (req, res) {
-    res.render('loan4');
-})
+app.use('/logged/loan', loanRouter);
 
 // Pay debt routing 
-app.get('/logged/debts', function (req, res) {
-    res.render('debts');
-})
-
-// Pay debt routing - repay - step 1
-app.get('/logged/debts/repay-step-1', function (req, res) {
-    res.render('repay1');
-})
-
-// Pay debt routing - repay - step 2
-app.get('/logged/debts/repay-step-2', function (req, res) {
-    res.render('repay2');
-})
+app.use('/logged/debts', debtRouter);
 
 // Listen on port
 app.listen(3000, function () {

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body style="margin: 0px">
+<div class="container">
+    <p class="container__logo">EastSeaBank</p>
+    <p class="container__greet">Xin kính chào quý khách</p>
+
+    <form style="display: flex; justify-content: center">
+        <div class="container__form">
+            <label class="container__form__label" for="phoneNumber">Số điện thoại</label>
+            <input class="container__form__input " type="text" id="phoneNumber" name="phoneNumber" required>
+            <label class="container__form__label" for="password">Mật khẩu</label>
+            <input class="container__form__input icon icon--show-password " type="password" id="password"
+                   name="password" required>
+            <label class="container__form__label" for="certificationCode">Mã xác nhận</label>
+            <input class="container__form__input icon icon--reset-code" type="text" id="certificationCode"
+                   name="certificationCode" required>
+            <a class="container__form__forgot-password" href="#">Quên mật khẩu </a>
+            <button class="container__form__button button--login">
+                Đăng nhập
+            </button>
+            <p style="margin-top: 10px"> Chưa có tài khoản? <a href="#">Tạo tài khoản </a></p>
+
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

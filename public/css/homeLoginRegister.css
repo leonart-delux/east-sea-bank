@@ -1,0 +1,286 @@
+.container {
+    width: 80%;
+    border: 2px solid red;
+    margin: auto;
+    font-family: 'Baloo 2', cursive;
+}
+
+.content-container__navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.navigation__logo {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.content-container__navigation li {
+    display: inline-block;
+    margin-left: 20px;
+
+}
+
+.content-container__navigation li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: red;
+    font-size: 16px;
+}
+
+.content-container__navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0px 0px;
+}
+
+.content-container__thumbnail {
+    border: 2px solid red;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.thumbnail__content {
+    margin-top: 100px;
+    max-width: 510px;
+    word-wrap: break-word; /* Cho phép xuống hàng */
+    overflow: hidden;
+}
+
+.thumbnail__content__search {
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-color: #508C9B;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    width: 450px;
+    height: 58px;
+}
+
+.thumbnail__content__search:focus-within {
+    border: 2px solid red; /* Viền khi input được focus */
+}
+
+.searchInput {
+    border: none;
+    width: 100%;
+    background: transparent;
+    font-size: 30px;
+    margin-left: 5px;
+    height: 45px;
+    line-height: 80px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+}
+
+.searchInput:focus {
+    outline: none; /* Loại bỏ viền khi focus */
+    border: none; /* Đảm bảo không có viền border khi focus */
+}
+
+.container__form__button {
+    width: 35%;
+    height: 40px;
+    border-radius: 20px;
+    border: transparent;
+}
+
+.link--login {
+    background-color: #134B70;
+    color: #FFFFFF;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container__form__button:hover {
+    background-color: #1E7BB6;
+}
+
+.content-container {
+    width: 90%;
+    margin: auto;
+}
+
+.content-container__navigation-service {
+    background-color: #134B70;
+    border-radius: 10px;
+    height: 60px;
+    margin-top: 50px;
+}
+
+.content-container__navigation-service ul {
+    width: 100%;
+    list-style-type: none;
+    padding: 0px;
+    height: 100%;
+    margin: 0px;
+    display: flex;
+}
+
+.content-container__navigation-service ul li {
+    flex: 1;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.content-container__navigation-service a {
+}
+
+.content-container__navigation-service li:hover {
+    background-color: red;
+    border-radius: 10px;
+}
+
+.content-container__section {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+
+.btn--info {
+    border-radius: 10px;
+    background-color: #508C9B;
+    margin-top: 20px;
+}
+
+.content-container img {
+    width: 650px;
+    height: 500px;
+}
+
+.content-container__section div {
+    margin-top: 100px;
+}
+
+.content-container__section__title {
+    font-weight: bold;
+    font-size: 30px;
+}
+.-title-saving{
+    max-width: 380px;
+}
+.-title-borrow{
+    max-width: 450px;
+}
+.-title-insurance{
+
+}
+.-title-number{
+
+}
+
+.content-container__section__text {
+    font-size: 15px;
+
+}
+
+.content-container__section__beauty-number {
+    margin-top: 200px !important;
+
+}
+
+.content-container__slogan {
+    border-radius: 20px;
+    background-color: #508C9B;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-container__slogan__text {
+    font-size: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 70px;
+}
+
+.button--start {
+    width: 220px;
+    color: #FFFFFF;
+    background-color: black;
+    font-weight: bold;
+    font-size: 17px;
+    margin: 20px auto auto;
+    border-radius: 10px;
+}
+
+
+
+.content-container__footer {
+    margin-top: 100px;
+}
+
+.content-container__footer img {
+    width: 32px;
+    height: 32px;
+}
+
+.content-container__footer a {
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: 8px;
+}
+
+.content-container__footer__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.content-container__footer__first-line-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.content-container__footer__second-line-info {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.content-container__footer__first-line-info__logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+.container__form_link {
+    width: 166px;
+    height: 40px;
+    border-radius: 20px;
+    border: transparent;
+    display: inline-block;
+    padding-inline: 6px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    vertical-align: middle;
+}
+.link--login:hover{
+    background-color: #1E7BB6; /* Thay đổi màu nền khi hover */
+    color: #FFD700;
+    cursor: pointer;
+}
+
+
+/*.content-container__footer div {*/
+/*    display: flex;*/
+/*    flex-direction: row ;*/
+/*    align-items: center; !* Căn giữa các phần tử con theo chiều ngang *! }*/
