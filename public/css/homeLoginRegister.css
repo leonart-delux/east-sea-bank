@@ -102,6 +102,22 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.link--login--1 {
+    background-color: #508C9B;
+    color: #FFFFFF;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link--login--2 {
+    background-color: #000000;
+    color: #FFFFFF;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .container__form__button:hover {
     background-color: #1E7BB6;
 }
@@ -112,7 +128,7 @@
 }
 
 .content-container__navigation-service {
-    background-color: #134B70;
+    background-color: rgba(80, 140, 155, 0.2);
     border-radius: 10px;
     height: 60px;
     margin-top: 50px;
@@ -142,7 +158,7 @@
 }
 
 .content-container__navigation-service li:hover {
-    background-color: red;
+    background-color: #508C9B;
     border-radius: 10px;
 }
 
@@ -198,7 +214,7 @@
 
 .content-container__slogan {
     border-radius: 20px;
-    background-color: #508C9B;
+    background-color: #373474;
     height: 350px;
     display: flex;
     flex-direction: column;
