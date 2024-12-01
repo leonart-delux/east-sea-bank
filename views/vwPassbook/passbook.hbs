@@ -1,0 +1,32 @@
+<div class="container passbook-container">
+    <div class="row">
+        <div class="col-md-1 text-right">
+            <img src="/arrow.png" alt="" class="icon-img">
+        </div>
+        <div class="col-md-11 text-left">
+            Sổ tiết kiệm
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            {{#each this.passbooks}}
+            <div class="passbook-prvw-container">
+                <div class="passbook-head">Sổ ngày: {{date}}</div>
+                <div class="row">
+                    <div class="col-6">{{totalMoney}}</div>
+                    <div class="col-6 passbook-rate">{{rate}}</div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">One</div>
+        <div class="col-sm">Two</div>
+        <div class="col-sm">Three</div>
+    </div>
+</div>
