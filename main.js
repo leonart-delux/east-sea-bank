@@ -11,7 +11,9 @@ import transferRouter from './routes/transfer.route.js';
 import savingRouter from './routes/saving.route.js';
 import passbookRouter from './routes/passbook.route.js';
 import loanRouter from './routes/loan.route.js';
+import accountRouter from "./routes/account.route.js";
 import debtRouter from './routes/debt.route.js';
+import hbs_section from 'express-handlebars-sections';
 
 
 const liveReloadServer = livereload.createServer();
@@ -44,6 +46,8 @@ app.engine('hbs', engine({
         format_number(value) {
             return numeral(value).format('0,0');
         },
+        section: hbs_section(),
+
 
     }
 }));
@@ -91,6 +95,9 @@ app.use('/logged/loan', loanRouter);
 
 // Pay debt routing 
 app.use('/logged/debts/', loanRouter);
+
+// For account
+app.use('/account', accountRouter);
 
 // Listen on port
 app.listen(3000, function () {
