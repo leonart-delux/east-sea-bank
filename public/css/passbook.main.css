@@ -1,6 +1,6 @@
 .passbook-container {
     margin-top: -420px;
-    padding-top: 30px;
+    padding: 30px 30px 50px 30px;
     background-color: rgba(35, 33, 67, 0.8);
     border-radius: 30px;
 }
@@ -15,10 +15,22 @@
 }
 
  .passbook-head {
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: large;
  }
 
- .passbook-rate {
-    text-align: right;
+ .passbook-money {
+    color: #88D7EB;
+ }
+
+ .summary-container {
+    width: 100%;
+    height: 80px;
+    background-color: #134B70;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 10px 30px 10px 30px;
+ }
+
+ .total-growth-rate {
+    color: #00F7C2;
  }

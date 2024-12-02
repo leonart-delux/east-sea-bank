@@ -10,8 +10,12 @@ router.get('/', function (req, res) {
     });
 });
 
-router.get('/inspect', function (req, res) {
-    res.render('vwPassbook/inspect');
+router.get('/inspect', async function (req, res) {
+    const id = +req.body.id;
+    const passbookInfor = await passbookService.getById(id);
+    res.render('vwPassbook/inspect', {
+        passbook: passbookInfor
+    });
 });
 
 export default router;

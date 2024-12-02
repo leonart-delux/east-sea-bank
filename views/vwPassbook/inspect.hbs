@@ -1,0 +1,78 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/public/css/passbook.main.css">
+<link rel="stylesheet" href="/public/css/passbook.inspect.css">
+{{/section}}
+
+<div class="container passbook-container">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-11 text-left">
+            <a href="/logged/passbook" role="button" class="text-decoration-none" style="color: inherit;">
+                <img src="/images/arrow.png" alt="" class="icon-img">
+                <b>Sổ ngày {{this.passbook.Ngay_Gui}}</b>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <div class="passbook-detail-container">
+                <div class="row passbook-detail passbook-detail-header justify-content-center"><b>Thông tin sổ</b></div>
+                <div class="row passbook-detail">
+                    Ngày gửi:
+                    <span>{{this.passbook.Ngay_Gui}}</span>
+                </div>
+                <div class="row passbook-detail">
+                    Loại hình:
+                    <span>Gửi có kỳ hạn</span>
+                </div>
+                <div class="row passbook-detail">
+                    Kỳ hạn:
+                    <span>12 tháng</span>
+                </div>
+                <div class="row passbook-detail">
+                    Tùy chọn:
+                    <span>Tự động gửi sau khi hết hạn</span>
+                </div>
+                <div class="row passbook-detail">
+                    Tình trạng:
+                    <span>Đang diễn ra</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-5 justify-content-end">
+            <div class="passbook-detail-container">
+                <div class="row passbook-detail passbook-detail-header justify-content-center"><b>Thông tin tài
+                        khoản</b></div>
+                <div class="row passbook-detail">
+                    Tài khoản
+                    <span>113</span>
+                </div>
+                <div class="row passbook-detail">
+                    Số tiền gửi:
+                    <span>{{this.passbook.Tien_Goc}}</span>
+                </div>
+                <div class="row passbook-detail">
+                    Số tiền lãi:
+                    <span>{{this.passbook.Tien_Lai}}</span>
+                </div>
+                <div class="row passbook-detail">
+                    Tổng tiền:
+                    <span>{{formatNumber (calTotalPassbookMoney this.passbook)}}</span>
+                </div>
+                <div class="row passbook-detail">
+                    Tăng trưởng:
+                    <span>{{getPassbookGrowthRate this.passbook}}</span>
+                </div>
+            </div>
+            <div class="row justify-content-end p">
+                <a class="btn btn-primary mt-3 mr-3" href="#" role="button">
+                    Rút gấp
+                </a>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
