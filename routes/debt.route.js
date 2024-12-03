@@ -3,7 +3,7 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/', function (req, res) {
-    res.render('vwDebt/debts');
+    res.render('vwDebtBook/debtbook');
 });
 
 // Pay debt routing - repay - step 1

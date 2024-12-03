@@ -178,7 +178,7 @@ margin-top: 3px"></button>
         if (!state.id) {
             return state.text;
         }
-        var baseUrl = "/";
+        var baseUrl = "/images/";
         console.log(state.element.id);
         var $state = $('<span><img src="' + baseUrl + state.element.id.toLowerCase()
                 + '" class="img-flag selection__img" /> ' + state.text + '</span>');

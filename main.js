@@ -125,6 +125,8 @@ app.use('/account', accountRouter);
 // For login
 app.use('/login', loginRouter);
 
+app.use('/logged/debtbook', debtRouter);
+
 // Listen on port
 app.listen(3000, function () {
     console.log('Server started on http://localhost:3000');
