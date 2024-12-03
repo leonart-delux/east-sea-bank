@@ -5,9 +5,9 @@ import savingPlanService from '../service/savingPlanService.js';
 const router = express.Router();
 
 // Saving routing - step 1
-router.get('/register', function (req, res) {
-    const savingOptions = savingOptionService.getAll();
-    const savingPlans = savingPlanService.getAll();
+router.get('/register', async function (req, res) {
+    const savingOptions = await savingOptionService.getAll();
+    const savingPlans = await savingPlanService.getAll();
 
     res.render('vwSaving/register', {
         savingOptions: savingOptions,
@@ -15,14 +15,26 @@ router.get('/register', function (req, res) {
     });
 });
 
+router.post('/register', function (req, res) {
+    res.redirect('/logged/saving/auth-account');
+});
+
 // Saving routing - step 2
 router.get('/auth-account', function (req, res) {
-    res.render('vwSaving/account');
+    res.render('vwSaving/auth-account');
+});
+
+router.post('/auth-account', function (req, res) {
+    res.redirect('/logged/saving/review');
 });
 
 // Saving routing - step 3
 router.get('/review', function (req, res) {
     res.render('vwSaving/review');
+});
+
+router.post('/review', function (req, res) {
+    res.redirect('/logged/saving/success');
 });
 
 // Saving routing - step 4
