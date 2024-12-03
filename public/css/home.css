@@ -1,0 +1,25 @@
+.container__home__selection__links {
+    width: 90%;
+    margin: auto;
+}
+
+.money-number {
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.link-image a {
+    transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển đổi mượt mà */
+}
+
+.link-image a:hover {
+    transform: scale(1.4);
+}
+.option-link a {
+    transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển đổi mượt mà */
+}
+
+.option-link a:hover {
+    transform: scale(1.1);
+}

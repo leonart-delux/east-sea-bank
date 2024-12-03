@@ -5,13 +5,17 @@ import livereload from 'livereload';
 import connectLiveReload from 'connect-livereload'
 import bodyParser from "body-parser";
 import session from "express-session"
-
+import numeral from 'numeral';
 import signinRouter from './routes/signin.route.js';
 import transferRouter from './routes/transfer.route.js';
 import savingRouter from './routes/saving.route.js';
 import passbookRouter from './routes/passbook.route.js';
 import loanRouter from './routes/loan.route.js';
+import accountRouter from "./routes/account.route.js";
 import debtRouter from './routes/debt.route.js';
+import hbs_section from 'express-handlebars-sections';
+import loginRouter from "./routes/login.route.js";
+import {generateRandomString} from "./utils/db.js";
 
 
 const liveReloadServer = livereload.createServer();
@@ -29,7 +33,6 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-app.use('/images', express.static('images'));
 //Module cho việc parse dữ liệu trong form thành json
 app.use(bodyParser.urlencoded({extend: true}));
 app.use(bodyParser.json());
@@ -41,11 +44,22 @@ app.use(connectLiveReload());
 // Config express and use 
 app.engine('hbs', engine({
     extname: 'hbs',
+    helpers:{
+        format_number(value) {
+            return numeral(value).format('0,0');
+        },
+        random_generate_string() {
+            return generateRandomString();
+        },
+        section: hbs_section(),
+
+
+    }
 }));
 app.set('view engine', 'hbs');
 app.set('views', './views');
 app.use(express.static('./public'));
-app.use(express.static('./images'));
+app.use('/images', express.static('images'));
 
 
 // Home page routing
@@ -56,12 +70,6 @@ app.get('/', function (req, res) {
 });
 
 // Log in routing
-app.get('/login', function (req, res) {
-    res.render('login'
-        , {
-            layout: false
-        });
-});
 
 // Sign-in routing
 app.use('/sign-in', signinRouter);
@@ -84,7 +92,13 @@ app.use('/logged/passbook', passbookRouter);
 app.use('/logged/loan', loanRouter);
 
 // Pay debt routing 
-app.use('/logged/debts', debtRouter);
+app.use('/logged/debts/', loanRouter);
+
+// For account
+app.use('/account', accountRouter);
+
+// For login
+app.use('/login', loginRouter);
 
 // Listen on port
 app.listen(3000, function () {

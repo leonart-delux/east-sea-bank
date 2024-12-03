@@ -1,0 +1,61 @@
+<div class="container mt-5  transfer__container  mx-auto shadow ">
+    <div class="row pt-3">
+        <a href="#" class="ml-3"><img src="/arrow.png" style="width: 25px; height: 25px"></a>
+        <span class="  mt-1  col-2" style="font-weight: bold ">Chuyển tiền- Xác nhận</span>
+    </div>
+    <div class="container w-75 mx-auto mt-3">
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-2">Tài khoản nguồn</div>
+                <div class="mb-2">Tài khoản thụ hưởng</div>
+                <div class="mb-2">Tên người thụ hưởng</div>
+                <div class="mb-2">Ngân hàng</div>
+                <div class="mb-2">Số tiền</div>
+                <div class="mb-2">Ngày giao dịch</div>
+                <div class="mb-2">Nội dung giao dịch</div>
+                <div class="mb-2">Mã Pin</div>
+            </div>
+            <div class="col-6">
+                <div class="text-right mb-2">{{this.transactionInformation.accountSentNumber}}</div>
+                <div class="text-right mb-2">{{this.transactionInformation.accountReceivedNumber}}</div>
+                <div class="text-right mb-2">{{this.transactionInformation.receiverName}}</div>
+                <div class="text-right mb-2">{{this.transactionInformation.bank}}</div>
+                <div class="text-right mb-2">{{this.transactionInformation.money}}</div>
+                <div class="text-right mb-2 " id="currentDate"></div>
+                <div class="text-right mb-2">{{this.transactionInformation.content}}</div>
+                <div>
+                    <div class="row d-flex justify-content-end">
+                        <input class="col-4 transfer__container__money__input " id="moneyInput" name="moneyAmount">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="post" action="">
+            <input type="hidden" name="accountSentNumber" value="{{this.transactionInformation.accountSentNumber}}">
+            <input type="hidden" name="accountReceiverNumber"
+                   value="{{this.transactionInformation.accountReceivedNumber}}">
+            <input type="hidden" name="receiverName" value="{{this.transactionInformation.receiverName}}">
+            <input type="hidden" name="moneyAmount" value="{{this.transactionInformation.money}}">
+            <input type="hidden" name="moneyAmount" value="{{this.transactionInformation.money}}">
+            <input type="hidden" name="content" value="{{this.transactionInformation.content}}">
+            <input type="hidden" name="bank" value="{{this.transactionInformation.bank}}">
+            <input type="hidden" name="date" id="currentDateTransfer" >
+            <button class="btn mb-3 col-12 btn--continue" type="submit"
+                    style="border-radius: 15px; background-color: #134B70; color:white; ">Xác nhận
+            </button>
+        </form>
+    </div>
+</div>
+
+<script> // Hàm lấy ngày hiện tại và định dạng nó
+function displayCurrentDate() {
+    var today = new Date();
+    var day = String(today.getDate()).padStart(2, '0');
+    var month = String(today.getMonth() + 1).padStart(2, '0'); // Tháng bắt đầu từ 0
+    var year = today.getFullYear();
+    var formattedDate = day + '/' + month + '/' + year; // Chèn ngày hiện tại vào phần tử có id là currentDate
+    document.getElementById('currentDate').innerText = formattedDate;
+    document.getElementById('currentDateTransfer').value = formattedDate;
+} // Gọi hàm để hiển thị ngày hiện tại
+displayCurrentDate();
+</script>

@@ -17,8 +17,10 @@
 </head>
 <body>
 <div class="container">
+    <div id="data-container" data-user-created="{{userCreated}}" data-phone-number="{{phoneNumber}}"
+         data-password="{{password}}"></div>
     <p class="container__title">Thông tin đăng ký tài khoản </p>
-    <form style="display: flex; justify-content: center" method="post" action="">
+    <form style="display: flex; justify-content: center" method="post" id="register" action="">
         <div class="container__form">
             <p class="container__guide">(*)Vui lòng điền đúng thông tin cá nhân của bạn trên giấy tờ tùy thân</p>
             <div class="form-group">
@@ -70,7 +72,7 @@
             </div>
             <div class="form-group">
                 <label class="container__form__label " for="contactAddress">Email</label>
-                <input class="container__form__input" type="email" id="email"
+                <input class="container__form__input" type="text" id="email"
                        name="email" required value="Nguyentruongpro19@gmail.com">
             </div>
             <div class="form-group">
@@ -86,7 +88,7 @@
                 </button>
             </div>
             <div class="form-group">
-                <input type="hidden" name="phoneNumber" value="{{this.userInfo.phoneNumber}}">
+                <input type="hidden" id="phoneNumber" name="phoneNumber" value="{{this.userInfo.phoneNumber}}">
             </div>
             <div class="form-group">
                 <input type="hidden" name="fullName" value="{{this.userInfo.fullName}}">
@@ -109,11 +111,7 @@
     </form>
 
 </div>
-<script
-        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"
-></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
@@ -124,5 +122,44 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"
 ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $('#register').on('submit', function (e) {
+        e.preventDefault();
+        const cccd = $('#cccd').val();
+        const phoneNumber = $('#phoneNumber').val();
+        //Code này kiểm tra cccd/phoneNumber đã tồn tại chưa,
+        //Muốn kỹ hơn có thể thêm mấy hàm kiểm tra
+        $.getJSON(`/account/is-available?cccd=${cccd}&phoneNumber=${phoneNumber}`, function (data) {
+            if (data === false) {
+                Swal.fire
+                ({
+                    title: 'Error!',
+                    text: 'CCCD/Phone number already existed',
+                    icon: 'error',
+                })
+                return;
+            }
+            console.log(data);
+            return $('#register').off('submit').submit();
+        });
+    });
+</script>
+<script>
+    const dataContainer = document.getElementById('data-container');
+    const userCreated = dataContainer.getAttribute('data-user-created') === 'true';
+    const phoneNumber = dataContainer.getAttribute('data-phone-number');
+    const password = dataContainer.getAttribute('data-password');
+    if (userCreated) {
+        Swal.fire({
+            title: 'User created successfully',
+            html: `Your account's phone number is: ${phoneNumber} <br>
+            Your account's password: ${password}`,
+            icon: 'success' // Thay đổi thành 'success' thay vì 'error'
+        });
+    }
+</script>
 </body>
 </html>

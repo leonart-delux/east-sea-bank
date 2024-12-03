@@ -6,20 +6,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node main.js",
-    "watch": "nodemon main.js"
+    "watch": "nodemon --ext *"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
+    "bootstrap": "^5.3.3",
     "connect-livereload": "^0.6.1",
     "express": "^4.21.1",
     "express-handlebars": "^8.0.1",
+    "express-handlebars-sections": "^1.0.1",
     "express-session": "^1.18.1",
     "knex": "^3.1.0",
     "livereload": "^0.9.3",
-    "mysql": "^2.18.1",
-    "mysql2": "^3.11.4"
+    "mysql2": "^3.11.4",
+    "numeral": "^2.0.6",
+    "unique-string": "^3.0.0"
   }
 }

@@ -1,4 +1,5 @@
 import express from 'express';
+import app from "express-session/session/memory.js";
 
 const router = express.Router();
 
