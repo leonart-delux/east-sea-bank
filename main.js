@@ -56,6 +56,9 @@ app.engine('hbs', engine({
         random_generate_string() {
             return generateRandomString();
         },
+        formatNumber(value) {
+            return numeral(value).format('0,0') + ' VNĐ';
+        },
         formatRate(value) {
             return numeral(value).format('0.00%');
         },
