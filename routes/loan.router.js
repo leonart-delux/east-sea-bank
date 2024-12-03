@@ -3,7 +3,7 @@ import loanServices from '../services/loan.services.js';
 
 const router= express.Router()
 
-router.get('/Loans',async (req, res) => {
+router.get('/admin/Loans',async (req, res) => {
     const Completed= await loanServices.getCompletedLoans();
     const Due= await loanServices.getDueLoans();
     const OverDue= await loanServices.getOverdueLoans();
