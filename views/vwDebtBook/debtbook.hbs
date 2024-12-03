@@ -1,11 +1,10 @@
 {{#section 'css'}}
-    <link rel="stylesheet"
-          href="/public/css/debtbook.css">
+<link rel="stylesheet" href="/public/css/debtbook.css">
 {{/section}}
 
 <div class="container mt-5  transfer__container  mx-auto shadow ">
     <div class="row pt-3 pb-2">
-        <a href="#" class="ml-3"><img src="/images/arrow.png" style="width: 25px; height: 25px"></a>
+        <a href="/logged/home" class="ml-3"><img src="../images/arrow.png" style="width: 25px; height: 25px"></a>
         <span class="    col-4" style="font-weight: bold ">Sổ nợ</span>
     </div>
     <div class=" container px-5 mt-4 " style="height: 300px">
@@ -28,8 +27,7 @@
                 <div></div>
             </div>
             <div id="right" class=" position-absolute  debtSectionRight "
-                 style="font-size: 10px; display: none; padding-left: 50px"
-            >
+                style="font-size: 10px; display: none; padding-left: 50px">
                 <div class="px-4 pt-1">
                     <div class="d-flex justify-content-between mb-1">
                         <div>Ngày vay: 01/01/2024</div>
@@ -59,22 +57,22 @@
 </div>
 
 {{#section 'js'}}
-    <script>
-        $(document).ready(function () {
-            $('#left').hover(
-                    function () {
-                        $('#right').show();
-                    },
-                    function () {
-                        setTimeout(function () {
-                            if (!$('#right').is(':hover')) {
-                                $('#right').hide();
-                            }
-                        }, 100);
+<script>
+    $(document).ready(function () {
+        $('#left').hover(
+            function () {
+                $('#right').show();
+            },
+            function () {
+                setTimeout(function () {
+                    if (!$('#right').is(':hover')) {
+                        $('#right').hide();
                     }
-            );
-        });
+                }, 100);
+            }
+        );
+    });
 
 
-    </script>
+</script>
 {{/section}}

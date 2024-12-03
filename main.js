@@ -17,6 +17,7 @@ import accountRouter from "./routes/account.route.js";
 import debtRouter from './routes/debt.route.js';
 import loginRouter from "./routes/login.route.js";
 import {generateRandomString} from "./utils/db.js";
+import { isAuth } from './middlewares/midwares.js';
 
 
 const liveReloadServer = livereload.createServer();
@@ -99,33 +100,35 @@ app.get('/', function (req, res) {
 // Sign-in routing
 app.use('/sign-in', signinRouter);
 
-// Logged routing
-app.get('/logged/home', function (req, res) {
-    res.render('home');
-});
-
-// Transfer routing
-app.use('/logged/transfer', transferRouter);
-
-// Saving routing
-app.use('/logged/saving', savingRouter);
-
-// Passbook routing 
-app.use('/logged/passbook', passbookRouter);
-
-// Loan routing 
-app.use('/logged/loan', loanRouter);
-
-// Pay debt routing 
-app.use('/logged/debts', loanRouter);
-
 // For account
 app.use('/account', accountRouter);
 
 // For login
 app.use('/login', loginRouter);
 
-app.use('/logged/debtbook', debtRouter);
+// Logged routing
+app.get('/logged/home', isAuth, function (req, res) {
+    res.render('home', {
+        user: req.session.authUser,
+    });
+});
+
+// Transfer routing
+app.use('/logged/transfer', isAuth, transferRouter);
+
+// Saving routing
+app.use('/logged/saving', isAuth, savingRouter);
+
+// Passbook routing 
+app.use('/logged/passbook', isAuth, passbookRouter);
+
+// Loan routing 
+app.use('/logged/loan', isAuth, loanRouter);
+
+// Pay debt routing 
+app.use('/logged/debts/', isAuth, loanRouter);
+
+app.use('/logged/debtbook', isAuth, debtRouter);
 
 // Listen on port
 app.listen(3000, function () {
