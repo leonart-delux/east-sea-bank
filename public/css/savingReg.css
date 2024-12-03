@@ -1,0 +1,60 @@
+.content-container {
+    margin-top: -420px;
+    padding: 30px 30px 50px 30px;
+    background-color: rgba(35, 33, 67, 0.8);
+    border-radius: 30px;
+    padding: 30px 0px 40px 0px;
+}
+
+.account-number-container {
+    background-color: #134B70;
+    margin: 20px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+.account-number-header {
+    font-size: small;
+    margin-right: 40px;
+}
+
+.list-img {
+    width: 15px;
+    height: 15px;
+}
+
+.form-container {
+    margin: 0;
+}
+
+.text-fill {
+    background-color: transparent;
+    border-bottom: 1px solid #FFFFFF;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+}
+
+.custom-select {
+    background-color: rgba(217, 217, 217, 0.5);
+    border: 0px;
+    border-radius: 10px;
+    color: #134B70;
+}
+
+option {
+    background-color: #818494;
+    color: #134B70;
+}
+
+.rate {
+    color: #9BA1DA;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.subbtn {
+    background-color: #134B70;
+    border-color: transparent;
+    color: white;
+}
