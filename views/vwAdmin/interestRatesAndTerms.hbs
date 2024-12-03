@@ -12,31 +12,29 @@
             <tbody>
                 <tr>
                     <th scope="row">Mức lãi không kỳ hạn:</th>
-                    <td>1.2 %</td>
+                    <td>{{NonTermInterest.Lai_Suat}} %</td>
                 </tr>
                 <tr>
                     <th scope="row">Mức lãi có kỳ hạn:</th>
                     <td></td>
                 </tr>
+                {{#each TermInterest}}
                 <tr>
-                    <td class="ps-4">Kỳ hạn 3 tháng:</td>
-                    <td>5 %</td>
+                    <td class="ps-4">Kỳ hạn {{Thoi_Gian_Ky_Han}} tháng:</td>
+                    <td>{{Lai_Suat}} %</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <th scope="row">Mức lãi cho vay</th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td class="ps-4">Kỳ hạn 6 tháng:</td>
-                    <td>6 %</td>
+                    <td class="ps-4">Vay tín dụng:</td>
+                    <td>{{CreditLoanInterest.Lai_Suat_Vay}} %</td>
                 </tr>
                 <tr>
-                    <td class="ps-4">Kỳ hạn 12 tháng:</td>
-                    <td>7.5 %</td>
-                </tr>
-                <tr>
-                    <td class="ps-4">Kỳ hạn 24 tháng:</td>
-                    <td>9 %</td>
-                </tr>
-                <tr>
-                    <th scope="row">Mức lãi cho vay:</th>
-                    <td>11 %</td>
+                    <td class="ps-4">Vay thế chấp:</td>
+                    <td>{{MortgageInterest.Lai_Suat_Vay}} %</td>
                 </tr>
             </tbody>
         </table>

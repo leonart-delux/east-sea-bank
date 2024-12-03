@@ -13,36 +13,36 @@
                 <tbody>
                     <tr>
                         <th scope="row">Mức lãi không kỳ hạn:</th>
-                        <td>
-                            <input type="text" class="form-control d-inline" value="1.2" style="width: 60px; display: inline;"> %
+                        <td >
+                            <input type="text" class="form-control d-inline" value="{{NonTermInterest.Lai_Suat}}" style="width: 60px; display: inline;"> %
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">Mức lãi có kỳ hạn:</th>
                         <td></td>
                     </tr>
+                    {{#each TermInterest}}
                     <tr>
-                        <td class="ps-4">Kỳ hạn 3 tháng:</td>
+                        <td class="ps-4">Kỳ hạn {{Thoi_Gian_Ky_Han}} tháng:</td>
                         <td>
-                            <input type="text" class="form-control d-inline" value="5" style="width: 60px; display: inline;"> %
+                            <input type="text" class="form-control d-inline" value="{{Lai_Suat}}" style="width: 60px; display: inline;"> %
+                        </td>
+                    </tr>
+                    {{/each}}
+                    <tr>
+                        <th scope="row">Mức lãi cho vay</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="ps-4">Vay tín dụng:</td>
+                        <td>
+                            <input type="text" class="form-control d-inline" value="{{CreditLoanInterest.Lai_Suat_Vay}}" style="width: 60px; display: inline;"> %
                         </td>
                     </tr>
                     <tr>
-                        <td class="ps-4">Kỳ hạn 6 tháng:</td>
+                        <td class="ps-4">Vay thế chấp:</td>
                         <td>
-                            <input type="text" class="form-control d-inline" value="6" style="width: 60px; display: inline;"> %
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="ps-4">Kỳ hạn 12 tháng:</td>
-                        <td>
-                            <input type="text" class="form-control d-inline" value="7.5" style="width: 60px; display: inline;"> %
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Mức lãi cho vay:</th>
-                        <td>
-                            <input type="text" class="form-control d-inline" value="11" style="width: 60px; display: inline;"> %
+                            <input type="text" class="form-control d-inline" value="{{MortgageInterest.Lai_Suat_Vay}}" style="width: 60px; display: inline;"> %
                         </td>
                     </tr>
                 </tbody>

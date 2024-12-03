@@ -30,14 +30,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each Completed}}
                         <tr>
-                            <td>001</td>
-                            <td>Lê Văn Việt Hoàng</td>
-                            <td>5.000.000 VNĐ</td>
-                            <td>12 tháng</td>
-                            <td>10%</td>
-                            <td><a href="#" class="text-primary">Chi tiết</a></td>
+                            <td>{{Ma_Vay}}</td>
+                            <td>{{Ho_Ten}}</td>
+                            <td>{{Khoan_Vay}}</td>
+                            <td>{{Ky_Han}} tháng</td>
+                            <td>{{Lai_Suat}}%</td>
+                            <td><a href="/loan/details?Ma_Vay={{Ma_Vay}}">Chi tiết</a></td>
                         </tr>
+                        {{/each}}
                         <!-- Thêm các dòng khác nếu cần -->
                     </tbody>
                 </table>
@@ -57,14 +59,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each Due}}
                         <tr>
-                            <td>005</td>
-                            <td>Biện Xuân Huy</td>
-                            <td>3.000.000 VNĐ</td>
-                            <td>6 tháng</td>
-                            <td>8%</td>
-                            <td><a href="#" class="text-primary">Chi tiết</a></td>
+                            <td>{{Ma_Vay}}</td>
+                            <td>{{Ho_Ten}}</td>
+                            <td>{{Khoan_Vay}}</td>
+                            <td>{{Ky_Han}} tháng</td>
+                            <td>{{Lai_Suat}}%</td>
+                            <td><a href="/loan/details?Ma_Vay={{Ma_Vay}}">Chi tiết</a></td>
                         </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>
@@ -83,14 +87,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each Overdue}}
                         <tr>
-                            <td>006</td>
-                            <td>Nguyễn Trường</td>
-                            <td>7.000.000 VNĐ</td>
-                            <td>18 tháng</td>
-                            <td>12%</td>
-                            <td><a href="#" class="text-primary">Chi tiết</a></td>
+                            <td>{{Ma_Vay}}</td>
+                            <td>{{Ho_Ten}}</td>
+                            <td>{{Khoan_Vay}}</td>
+                            <td>{{Ky_Han}} tháng</td>
+                            <td>{{Lai_Suat}}%</td>
+                            <td><a href="/loan/details?Ma_Vay={{Ma_Vay}}">Chi tiết</a></td>
                         </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>

@@ -25,10 +25,6 @@ router.get('/make-a-loan/loan-information', function (req, res) {
     res.render('vwLoan/unsecured-loan-information');
 });
 
-router.post('/make-a-loan/loan-information', function (req, res) {
-    res.redirect('/make-a-loan/loan-finished');
-});
-
 router.get('/make-a-loan/loan-finished', function (req, res) {
     res.render('vwLoan/loan-finished');
 });

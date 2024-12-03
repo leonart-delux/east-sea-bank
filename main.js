@@ -96,13 +96,13 @@ app.use('/images', express.static('images'));
 
 // Admin router
 
-app.use('',UsersRouter);
-app.use('',LoansRouter);
-app.use('',SavingRouter);
-app.use('',interestRouter);
+app.use('/admin',UsersRouter);
+app.use('/admin',LoansRouter);
+app.use('/admin',SavingRouter);
+app.use('/admin',interestRouter);
 
 
-app.get('/Statistics', (req, res) => {
+app.get('/admin/Statistics', (req, res) => {
   res.render('vwAdmin/statistics', {
       layout: 'admin'
   });

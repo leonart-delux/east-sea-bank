@@ -48,7 +48,7 @@
                 </tbody>
             </table>
 
-            <h6>Biểu đồ lợi nhuận</h6>
+            <h6>Biểu đồ lợi nhuận theo tháng</h6>
             <!-- Tabs -->
             <ul class="nav nav-tabs" id="graph" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -74,6 +74,8 @@
                     <canvas id="oneYearChart" width="400" height="200"></canvas>
                 </div>
             </div>
+            <h6>Biểu đồ lợi nhuận tháng</h6>
+            <canvas id="byMonth" width="400" height="200"></canvas>
         </div>
     </div>
 </div>
@@ -128,6 +130,28 @@
     });
     //1year
     var ctx = document.getElementById('oneYearChart').getContext('2d');
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7'],
+            datasets: [{
+                label: 'Doanh số',
+                data: [12, 19, 3, 5, 2, 3, 7],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    //month
+    var ctx = document.getElementById('byMonth').getContext('2d');
     var myBarChart = new Chart(ctx, {
         type: 'bar',
         data: {
