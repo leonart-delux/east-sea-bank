@@ -21,5 +21,15 @@ const formatDate = (date) => {
         = ('0' + d.getDate()).slice(-2);
     return `${year}-${month}-${day}`
 };
+const generateRandomString = (length = 4) => {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    let randomString = '';
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        randomString += characters[randomIndex];
+    }
+    return randomString;
+}
 export default db;
-export  {formatDate};
+export {formatDate};
+export {generateRandomString}
