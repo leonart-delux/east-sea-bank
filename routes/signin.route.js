@@ -5,11 +5,6 @@ import uniqueString from "unique-string";
 import bcrypt from 'bcryptjs'
 
 const router = express.Router();
-
-router.use(express.urlencoded({
-    extended: true
-}));
-
 // Sign in routing - step 1
 router.get('/step-1', function (req, res) {
     res.render('sign-in/step-1', {
