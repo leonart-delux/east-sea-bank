@@ -24,7 +24,7 @@
                         <div class="col-6 passbook-money">{{formatNumber Tien_Goc}}</div>
                         <div class="col-6 passbook-rate d-flex justify-content-end">
                             <img src="/images/arrows.png" alt="" class="icon-img">
-                            <b>{{rate}}</b>
+                            <b>{{formatRate Lai}}</b>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="summary-item d-flex justify-content-between">
                     <strong>Tổng tăng trưởng:</strong>
-                    <div class="total-growth-rate">{{calTotalPassbooksGrowth this.passbooks}} %</div>
+                    <div class="total-growth-rate">{{formatRate (calTotalPassbooksGrowth this.passbooks)}}</div>
                 </div>
             </div>
         </div>

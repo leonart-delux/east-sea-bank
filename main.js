@@ -63,9 +63,9 @@ app.engine('hbs', engine({
         },
         calTotalPassbooksGrowth(passbooks) {
             const totalBaseMoney = passbooks.reduce((sum, passbook) => sum + passbook.Tien_Goc, 0);
-            const totalMoney = passbooks.reduce((sum, passbook) => sum + passbook.Tien_Goc + passbook.Tien_Lai, 0);
+            const totalProfit = passbooks.reduce((sum, passbook) => sum + passbook.Tien_Lai, 0);
             if (totalBaseMoney === 0) return 0;
-            return ((totalMoney - totalBaseMoney) / totalBaseMoney * 100).toFixed(2);
+            return (totalProfit / totalBaseMoney).toFixed(4);
         },
         section: hbs_section(),
     }
