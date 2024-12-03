@@ -14,6 +14,8 @@ import loanRouter from './routes/loan.route.js';
 import accountRouter from "./routes/account.route.js";
 import debtRouter from './routes/debt.route.js';
 import hbs_section from 'express-handlebars-sections';
+import loginRouter from "./routes/login.route.js";
+import {generateRandomString} from "./utils/db.js";
 
 
 const liveReloadServer = livereload.createServer();
@@ -46,6 +48,9 @@ app.engine('hbs', engine({
         format_number(value) {
             return numeral(value).format('0,0');
         },
+        random_generate_string() {
+            return generateRandomString();
+        },
         section: hbs_section(),
 
 
@@ -66,12 +71,6 @@ app.get('/', function (req, res) {
 });
 
 // Log in routing
-app.get('/login', function (req, res) {
-    res.render('login'
-        , {
-            layout: false
-        });
-});
 
 // Sign-in routing
 app.use('/sign-in', signinRouter);
@@ -98,6 +97,9 @@ app.use('/logged/debts/', loanRouter);
 
 // For account
 app.use('/account', accountRouter);
+
+// For login
+app.use('/login', loginRouter);
 
 // Listen on port
 app.listen(3000, function () {
