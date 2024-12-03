@@ -6,18 +6,22 @@
 }
 
 .container__logo {
+    color: #ffffff;
+    text-align: center;
     font-weight: bold;
-    font-size: 110px;
+    font-size: 90px;
 }
 
 .container__greet {
+    color: #ffffff;
     margin-top: 10px;
-    font-size: 50px;
+    font-size: 40px;
     margin-bottom: 10px;
     text-align: center;
 }
 
 .container__form {
+    margin-top: 50px;
     max-width: 300px;
 }
 
@@ -32,6 +36,7 @@
 }
 
 .container__form__label {
+    color: #ffffff;
     margin-left: 20px;
     margin-bottom: 0;
 }
@@ -55,7 +60,6 @@
     font-size: 10px;
     color: #508C9B;
     margin-right: 5px;
-    margin-top: 5px
 }
 
 .container__form__button {
@@ -105,12 +109,14 @@
 .container__title {
     font-size: 50px;
     font-weight: bold;
-
+    color: #ffffff;
+    text-align: center;
 }
 
 .container__guide {
     margin-top: 10px;
     text-align: left;
+    color: #ffffff;
 }
 
 .button--send-image {
