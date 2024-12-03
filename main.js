@@ -117,7 +117,7 @@ app.use('/logged/passbook', passbookRouter);
 app.use('/logged/loan', loanRouter);
 
 // Pay debt routing 
-app.use('/logged/debts/', loanRouter);
+app.use('/logged/debts', loanRouter);
 
 // For account
 app.use('/account', accountRouter);
