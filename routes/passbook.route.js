@@ -13,8 +13,15 @@ router.get('/', function (req, res) {
 router.get('/inspect', async function (req, res) {
     const id = +req.body.id;
     const passbookInfor = await passbookService.getById(id);
+    const savingPlan = await passbookService.getFullPassbookDetailById(id);
+
+    const savingType = savingPlan.ten_loai_hinh_tiet_kiem;
+    const isLimitTime = savingType === 'Có kỳ hạn';
+
     res.render('vwPassbook/inspect', {
-        passbook: passbookInfor
+        passbook: passbookInfor,
+        savingPlan: savingPlan,
+        isLimitTime: isLimitTime
     });
 });
 

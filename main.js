@@ -47,13 +47,16 @@ app.engine('hbs', engine({
     extname: 'hbs',
     helpers: {
         formatNumber(value) {
-            return numeral(value).format(0,0) + ' VNĐ';
+            return numeral(value).format('0,0') + ' VNĐ';
+        },
+        formatRate(value) {
+            return numeral(value).format('0.00%');
         },
         calTotalPassbookMoney(passbook) {
             return passbook.Tien_Goc + passbook.Tien_Lai;
         },
-        getPassbookGrowthRate(passbook) {
-            return ((passbook.Tien_Goc + passbook.Tien_Lai) / passbook.Tien_Lai * 100).toFixed(2);
+        calPassbookGrowthRate(passbook) {
+            return (passbook.Tien_Lai / passbook.Tien_Goc).toFixed(4);
         },
         calTotalPassbooksMoney(passbooks) {
             return passbooks.reduce((sum, passbook) => sum + passbook.Tien_Goc + passbook.Tien_Lai, 0);

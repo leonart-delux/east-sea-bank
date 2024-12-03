@@ -25,19 +25,31 @@
                 </div>
                 <div class="row passbook-detail">
                     Loại hình:
-                    <span>Gửi có kỳ hạn</span>
+                    <span>{{this.savingPlan.ten_loai_hinh_tiet_kiem}}</span>
                 </div>
-                <div class="row passbook-detail">
+                {{#if this.isLimitTime}}
+                   <div class="row passbook-detail">
                     Kỳ hạn:
-                    <span>12 tháng</span>
+                    <span>{{this.savingPlan.thoi_gian_ky_han}} tháng</span>
+                </div>
+                {{/if}}
+                <div class="row passbook-detail">
+                    Lãi:
+                    <span>{{formatRate this.passbook.Lai}}</span>
                 </div>
                 <div class="row passbook-detail">
                     Tùy chọn:
-                    <span>Tự động gửi sau khi hết hạn</span>
+                    <span>{{this.savingPlan.Ten_Tuy_Chon}}</span>
                 </div>
                 <div class="row passbook-detail">
                     Tình trạng:
-                    <span>Đang diễn ra</span>
+                    <span>
+                        {{#if this.savingPlan.Dong_So}}
+                        Đã đóng
+                        {{else}}
+                        Đang diễn ra
+                        {{/if}}
+                    </span>
                 </div>
 
             </div>
@@ -48,15 +60,15 @@
                         khoản</b></div>
                 <div class="row passbook-detail">
                     Tài khoản
-                    <span>113</span>
+                    <span>{{this.passbook.So_Tai_Khoan}}</span>
                 </div>
                 <div class="row passbook-detail">
                     Số tiền gửi:
-                    <span>{{this.passbook.Tien_Goc}}</span>
+                    <span>{{formatNumber this.passbook.Tien_Goc}}</span>
                 </div>
                 <div class="row passbook-detail">
                     Số tiền lãi:
-                    <span>{{this.passbook.Tien_Lai}}</span>
+                    <span>{{formatNumber this.passbook.Tien_Lai}}</span>
                 </div>
                 <div class="row passbook-detail">
                     Tổng tiền:
@@ -64,7 +76,7 @@
                 </div>
                 <div class="row passbook-detail">
                     Tăng trưởng:
-                    <span>{{getPassbookGrowthRate this.passbook}}</span>
+                    <span>{{formatRate (calPassbookGrowthRate this.passbook)}}</span>
                 </div>
             </div>
             <div class="row justify-content-end p">
