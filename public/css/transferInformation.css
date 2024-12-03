@@ -1,0 +1,41 @@
+.transfer__container__title{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+.transfer__container__money__input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px white solid;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
+
+}
+.transfer__container__money__input:focus
+{
+    padding-top: 0;
+    padding-bottom: 0;
+    outline: none!important;
+}
+.currency-unit{
+    border-bottom: 1px white solid;
+
+}
+.money__recommend {
+    border-radius: 10px;
+    background-color: #134B70;
+    color: white;
+    border: none;
+    height: 30px;
+}
+.money__recommend:hover  {
+    border: 1px solid white;
+
+}
+.btn--continue:hover{
+    border: 1px solid white;
+}
