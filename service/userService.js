@@ -9,5 +9,8 @@ export default {
     isThisCustomerInfoExisted(cccd, phoneNumber) {
         return db('khach_hang').where('CCCD', cccd).orWhere('SDT', phoneNumber).first();
     },
+    findCustomeByPhoneNumber(phoneNumber) {
+        return db('khach_hang').where('SDT', phoneNumber).first();
+    },
 
 }
