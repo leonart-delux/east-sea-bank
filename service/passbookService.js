@@ -9,7 +9,7 @@ export default {
         return { Ma_Vi: '1', So_Tai_Khoan: '022222002220', Ngay_Gui: '10/10/2023', Tien_Goc: 5000000, Tien_Lai: 512000, Lai: 0.1 }
     },
     getFullPassbookDetailById(id) {
-        return { Ma_Vi: '1', So_Tai_Khoan: '022222002220', Ngay_Gui: '10/10/2023', Tien_Goc: 5120000, Tien_Lai: 500000, Lai: 0.1,  Lai_Suat: 0.1, thoi_gian_ky_han: 12, ten_loai_hinh_tiet_kiem: 'Có kỳ hạn', Ten_Tuy_Chon: 'Tự động đáo hạn', Dong_So: false}
+        return { Ma_Vi: '1', So_Tai_Khoan: '022222002220', Ngay_Gui: '10/10/2023', Tien_Goc: 5120000, Tien_Lai: 500000, Lai: 0.1,  Lai_Suat: 0.1, Thoi_Gian_Ky_Han: 12, Ten_Loai_Hinh_Tiet_Kiem: 'Có kỳ hạn', Ten_Tuy_Chon: 'Tự động đáo hạn', Dong_So: false}
 
         // return db('vi_tiet_kiem as vt')
         //         .select(
