@@ -158,7 +158,10 @@
             title: 'User created successfully',
             html: `Your account's phone number is: ${phoneNumber} <br>
             Your account's password: ${password}`,
-            icon: 'success' // Thay đổi thành 'success' thay vì 'error'
+            icon: 'success'
+        }).then(() => {
+            // Điều hướng sau khi thông báo được đóng
+            window.location.href = '/login'; // Thay URL ở đây
         });
     }
 </script>
