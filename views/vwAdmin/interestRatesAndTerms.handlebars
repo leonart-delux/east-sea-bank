@@ -1,0 +1,42 @@
+<div class="card mt-6">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Điều chỉnh mức lãi</h5>
+        <a href="./RatesAndTermsEdit">
+            <button class="btn btn-edit btn-outline-primary btn-sm">Sửa
+                <i class="bi bi-pencil-square"></i>
+            </button>
+        </a>
+    </div>
+    <div class="card-body">
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <th scope="row">Mức lãi không kỳ hạn:</th>
+                    <td>{{NonTermInterest.Lai_Suat}} %</td>
+                </tr>
+                <tr>
+                    <th scope="row">Mức lãi có kỳ hạn:</th>
+                    <td></td>
+                </tr>
+                {{#each TermInterest}}
+                <tr>
+                    <td class="ps-4">Kỳ hạn {{Thoi_Gian_Ky_Han}} tháng:</td>
+                    <td>{{Lai_Suat}} %</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <th scope="row">Mức lãi cho vay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="ps-4">Vay tín dụng:</td>
+                    <td>{{CreditLoanInterest.Lai_Suat_Vay}} %</td>
+                </tr>
+                <tr>
+                    <td class="ps-4">Vay thế chấp:</td>
+                    <td>{{MortgageInterest.Lai_Suat_Vay}} %</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
