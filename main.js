@@ -6,6 +6,8 @@ import connectLiveReload from 'connect-livereload'
 import bodyParser from "body-parser";
 import session from "express-session"
 import numeral from 'numeral';
+import hbs_section from 'express-handlebars-sections';
+
 import signinRouter from './routes/signin.route.js';
 import transferRouter from './routes/transfer.route.js';
 import savingRouter from './routes/saving.route.js';
@@ -13,7 +15,6 @@ import passbookRouter from './routes/passbook.route.js';
 import loanRouter from './routes/loan.route.js';
 import accountRouter from "./routes/account.route.js";
 import debtRouter from './routes/debt.route.js';
-import hbs_section from 'express-handlebars-sections';
 import loginRouter from "./routes/login.route.js";
 import {generateRandomString} from "./utils/db.js";
 
@@ -24,6 +25,8 @@ liveReloadServer.server.once("connection", () => {
         liveReloadServer.refresh("/");
     }, 1);
 });
+
+// ------- Main app
 const app = express();
 
 //Khi đăng nhập từ bước 1 sang bước 2 thì có lưu 2 thông tin là sdt và họ tên
@@ -33,6 +36,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+
+
 //Module cho việc parse dữ liệu trong form thành json
 app.use(bodyParser.urlencoded({extend: true}));
 app.use(bodyParser.json());
@@ -51,14 +56,31 @@ app.engine('hbs', engine({
         random_generate_string() {
             return generateRandomString();
         },
+        formatRate(value) {
+            return numeral(value).format('0.00%');
+        },
+        calTotalPassbookMoney(passbook) {
+            return passbook.Tien_Goc + passbook.Tien_Lai;
+        },
+        calPassbookGrowthRate(passbook) {
+            return (passbook.Tien_Lai / passbook.Tien_Goc).toFixed(4);
+        },
+        calTotalPassbooksMoney(passbooks) {
+            return passbooks.reduce((sum, passbook) => sum + passbook.Tien_Goc + passbook.Tien_Lai, 0);
+        },
+        calTotalPassbooksGrowth(passbooks) {
+            const totalBaseMoney = passbooks.reduce((sum, passbook) => sum + passbook.Tien_Goc, 0);
+            const totalProfit = passbooks.reduce((sum, passbook) => sum + passbook.Tien_Lai, 0);
+            if (totalBaseMoney === 0) return 0;
+            return (totalProfit / totalBaseMoney).toFixed(4);
+        },
         section: hbs_section(),
-
-
     }
 }));
+
 app.set('view engine', 'hbs');
 app.set('views', './views');
-app.use(express.static('./public'));
+app.use('/public', express.static('public'));
 app.use('/images', express.static('images'));
 
 

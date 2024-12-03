@@ -1,0 +1,48 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/public/css/passbook.main.css">
+{{/section}}
+
+<div class="container passbook-container">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-11 text-left">
+            <a href="/logged/home" role="button" class="text-decoration-none" style="color: inherit;">
+                <img src="/images/arrow.png" alt="" class="icon-img">
+                <b>Sổ tiết kiệm</b>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            {{#each this.passbooks}}
+            <a id="btnPassbookInspect" class="text-decoration-none" style="color: inherit;" href="/logged/passbook/inspect?id={{Ma_Vi}}">
+                <div class="passbook-prvw-container d-flex flex-column justify-content-around">
+                    <div class="passbook-head"><b>Sổ ngày: {{Ngay_Gui}}</b></div>
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-6 passbook-money">{{formatNumber Tien_Goc}}</div>
+                        <div class="col-6 passbook-rate d-flex justify-content-end">
+                            <img src="/images/arrows.png" alt="" class="icon-img">
+                            <b>{{formatRate Lai}}</b>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="summary-container d-flex flex-column justify-content-around">
+                <div class="summary-item d-flex justify-content-between">
+                    <strong>Tổng sổ:</strong>
+                    {{formatNumber (calTotalPassbooksMoney this.passbooks)}}
+                </div>
+                <div class="summary-item d-flex justify-content-between">
+                    <strong>Tổng tăng trưởng:</strong>
+                    <div class="total-growth-rate">{{formatRate (calTotalPassbooksGrowth this.passbooks)}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

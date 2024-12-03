@@ -1,0 +1,100 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/public/css/savingReg.css">
+{{/section}}
+
+{{#section 'js'}}
+<script>
+    $('#savingTypeSelect').on('change', function () {
+        var selection = $('#savingTermSelect');  // Lấy phần tử "Kỳ hạn"
+        var rate = $('#rateValue');
+
+        if (this.value === "1") {
+            selection.prop('disabled', false);
+            rate.text('-');
+        }
+        else {
+            selection.prop('disabled', true);
+            selection.val('');
+            rate.text('1.2%');
+        }
+    });
+</script>
+{{/section}}
+
+
+<div class="container content-container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11 text-left">
+            <a href="/logged/home" role="button" class="text-decoration-none" style="color: inherit;">
+                <img src="/images/arrow.png" alt="" class="icon-img">
+                <b>Gửi tiết kiệm</b>
+            </a>
+        </div>
+    </div>
+    <div class="row account-number-container">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <span class="account-number-header">Tài khoản gửi</span>
+            <img src="/images/list.png" alt="" class="list-img"> <br>
+            <b class="mt-5">012210000111</b>
+        </div>
+        <div class="col-md-5 text-right">
+            <span class="account-number-header mr-0">Số dư khả dụng</span> <br>
+            <b>1,000,000,000 VNĐ</b>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <form method="post">
+                <div class="form-group row mt-2 d-flex align-items-center">
+                    <label for="" class="col-md-5 text-left"><b>Số tiền gửi</b></label>
+                    <input type="text" name="" id="" class="col-md-7 text-fill" placeholder="VNĐ">
+                </div>
+                <div class="form-group row mt-2 d-flex align-items-center">
+                    <label for="savingTypeSelect" class="col-md-5 text-left"><b>Loại hình tiết
+                            kiệm</b></label>
+                    <div class="col-md-7">
+                        <select class="custom-select" id="savingTypeSelect">
+                            <option value="1">Có kỳ hạn</option>
+                            <option value="2">Không kỳ hạn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mt-2 d-flex align-items-center">
+                    <label for="" class="col-md-5 text-left"><b>Kỳ hạn</b></label>
+                    <div class="col-md-7">
+                        <select class="custom-select" id="savingTermSelect">
+                            {{#each this.savingPlans}}
+                            <option value="{{Ma_Goi}}">{{Thoi_Gian_Ky_Han}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-2 mb-4 d-flex align-items-center">
+                    <b class="col-md-5">Lãi suất của bạn</b>
+                    <b class="col-md-7 rate" id="rateValue">-</b>
+                </div>
+                <div class="form-group row mt-2 d-flex align-items-center">
+                    <label for="savingTypeSelect" class="col-md-5 text-left"><b>Tùy chọn sau khi hết hạn</b></label>
+                    <div class="col-md-7">
+                        <select class="custom-select" id="savingTypeSelect">
+                            {{#each this.savingOptions}}
+                            <option value="{{Ma_Tuy_Chon}}">{{Ten_Tuy_Chon}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <button type="button" class="btn subbtn btn-outline-primary">
+                        Tiếp tục
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
