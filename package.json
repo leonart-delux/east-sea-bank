@@ -25,5 +25,8 @@
     "mysql2": "^3.11.4",
     "numeral": "^2.0.6",
     "unique-string": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }

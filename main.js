@@ -16,6 +16,12 @@ import loanRouter from './routes/loan.route.js';
 import accountRouter from "./routes/account.route.js";
 import debtRouter from './routes/debt.route.js';
 import loginRouter from "./routes/login.route.js";
+import UsersRouter from './routes/manageUser.router.js';
+import LoansRouter from './routes/loan.router.js';
+import SavingRouter from './routes/saving.router.js'
+import interestRouter from './routes/interest.router.js';
+
+
 import {generateRandomString} from "./utils/db.js";
 import { isAuth } from './middlewares/midwares.js';
 
@@ -35,7 +41,8 @@ const app = express();
 app.use(session({
     secret: "NhatKyVienPhuong",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {}
 }));
 
 
@@ -87,15 +94,28 @@ app.set('views', './views');
 app.use('/public', express.static('public'));
 app.use('/images', express.static('images'));
 
+// Admin router
+
+app.use('',UsersRouter);
+app.use('',LoansRouter);
+app.use('',SavingRouter);
+app.use('',interestRouter);
+
+
+app.get('/Statistics', (req, res) => {
+  res.render('vwAdmin/statistics', {
+      layout: 'admin'
+  });
+});
+
+// User router
 
 // Home page routing
-app.get('/', function (req, res) {
+app.get('/', isAuth, function (req, res) {
     res.render('home_login_register', {
         layout: false
     });
 });
-
-// Log in routing
 
 // Sign-in routing
 app.use('/sign-in', signinRouter);

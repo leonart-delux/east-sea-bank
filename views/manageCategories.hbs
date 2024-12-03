@@ -1,0 +1,141 @@
+<div class="container mt-6">
+    <!-- Add Category Section -->
+    <div class="mb-3">
+        <h5>Thêm danh mục</h5>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Tên danh mục">
+            <div class="input-group-append">
+                <button class="btn btn-info" type="button">Thêm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category List Section -->
+    <div class="card">
+        <div class="card-header">
+            Danh sách danh mục
+        </div>
+        <div class="card-body">
+            <!-- Health Category -->
+            <div class="mb-3">
+                <ul class="list-unstyled d-flex align-items-center mb-1">
+                    <li class="d-flex align-items-center">
+                        <h6 class="mb-2 mr-3">Thời sự</h6>
+                        <div class="mb-2 mr-3">
+                            <button class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="showEditInput(this)">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" placeholder="Tên danh mục con">
+                    <div class="input-group-append">
+                        <button class="btn btn-info" type="button">Thêm</button>
+                    </div>
+                </div>
+                <ul class="list-unstyled">
+                    <li class="d-flex justify-content-between align-items-center">
+                        Tin quốc tế
+                        <div>
+                            <button class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="showEditInput(this)">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center">
+                        Tin trong nước
+                        <div>
+                            <button class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="showEditInput(this)">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Agriculture Category -->
+            <div class="mb-3">
+                <div class="d-flex align-items-center mb-1">
+                    <h6 class="mr-3">Kinh tế</h6>
+                    <div class="mb-1">
+                        <button class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-trash3-fill"></i>
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" placeholder="Tên danh mục con">
+                    <div class="input-group-append">
+                        <button class="btn btn-info" type="button">Thêm</button>
+                    </div>
+                </div>
+                <ul class="list-unstyled">
+                    <li class="d-flex justify-content-between align-items-center">
+                        Doanh nghiệp
+                        <div>
+                            <button class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center">
+                        Chứng khoán
+                        <div>
+                            <button class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- JavaScript -->
+<script>
+    function showEditInput(button) {
+        // Tìm phần tử cha của nút "Edit" là li
+        const listItem = button.closest("li");
+
+        // Kiểm tra xem đã có ô nhập liệu chưa để không tạo lại
+        if (listItem.nextElementSibling && listItem.nextElementSibling.classList.contains("edit-input")) {
+            return; // Nếu đã tồn tại, không tạo thêm
+        }
+
+        // Tạo div mới chứa input và nút "Lưu"
+        const inputDiv = document.createElement("div");
+        inputDiv.className = "edit-input d-flex align-items-center mb-2";
+        inputDiv.innerHTML = `
+            <input type="text" class="form-control me-2" placeholder="Nhập nội dung mới">
+            <button class="btn btn-primary btn-sm" onclick="saveEdit(this)">Lưu</button>
+        `;
+
+        // Thêm div mới ngay sau li chứa nút "Edit"
+        listItem.insertAdjacentElement("afterend", inputDiv);
+    }
+
+    function saveEdit(button) {
+        alert("Nội dung đã được lưu!");
+        // Xóa div input sau khi lưu
+        button.parentElement.remove();
+    }
+</script>
