@@ -40,7 +40,6 @@ const app = express();
 
 //Khi đăng nhập từ bước 1 sang bước 2 thì có lưu 2 thông tin là sdt và họ tên
 //Sử dụng session để lưu dữ liệu
-app.set('trust proxy', 1) // trust first proxy
 app.use(session({
     secret: "NhatKyVienPhuong",
     resave: false,
@@ -166,5 +165,5 @@ const port = process.env.PORT || 3000;
 
 // Listen on `port` and 0.0.0.0
 app.listen(port, "0.0.0.0", function () {
-    console.log('Server started on http://localhost:3000');
+    console.log(`Server started on http://localhost:${port}`);
 });
