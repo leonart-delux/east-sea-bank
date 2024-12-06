@@ -44,5 +44,26 @@ export default{
                 'khach_hang.SDT',
                 'khach_hang.Email'
             );
+    },
+    getDetails(Ma_Vay) {
+        return db('khoan_vay')
+            .join('tai_khoan', 'khoan_vay.So_Tai_Khoan', '=', 'tai_khoan.So_Tai_Khoan')
+            .join('khach_hang', 'tai_khoan.Ma_KH', '=', 'khach_hang.Ma_KH')
+            .select(
+                'khach_hang.Ho_Ten',
+                'khach_hang.CCCD',
+                'khach_hang.Email',
+                'khach_hang.SDT',
+                'khach_hang.dia_chi_thuong_tru',
+                'khach_hang.dia_chi_lien_he',
+                'tai_khoan.So_Tai_Khoan',
+                'khoan_vay.Khoan_Vay',
+                'khoan_vay.Lai_Suat',
+                'khoan_vay.Ky_Han',
+                'khoan_vay.Ngay_Bat_Dau'
+            )
+            .where('khoan_vay.Ma_Vay', Ma_Vay)
+            .first(); // Lấy 1 bản ghi duy nhất
     }
+    
 }

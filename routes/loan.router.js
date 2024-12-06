@@ -17,5 +17,14 @@ router.get('/Loans',async (req, res) => {
         layout: 'admin'
     });
   });
+  router.get('/Loans/details',async (req, res) => {
+    const Ma_Vay = parseInt(req.query.Ma_Vay || 0);
+    const data = await loanServices.getDetails(Ma_Vay)
+    console.log(data)
+    res.render('vwAdmin/loanInfor', {
+        data:data,
+        layout: 'admin'
+    });
+  });
 
 export default router

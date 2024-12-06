@@ -21,6 +21,8 @@ import LoansRouter from './routes/loan.router.js';
 import SavingRouter from './routes/saving.router.js'
 import interestRouter from './routes/interest.router.js';
 
+import staticServices from './services/statistic.servies.js'
+
 
 import {generateRandomString} from "./utils/db.js";
 import { isAuth } from './middlewares/midwares.js';
@@ -102,10 +104,17 @@ app.use('/admin',SavingRouter);
 app.use('/admin',interestRouter);
 
 
-app.get('/admin/Statistics', (req, res) => {
-  res.render('vwAdmin/statistics', {
-      layout: 'admin'
-  });
+app.get('/admin/Statistics',async (req, res) => {
+    const data = await staticServices.getAllAggregates()
+    const totalInBank=200000000000-data.totalLoan+data.totalSaving
+    const totalInterest=data.totalLoanInterest-data.nonTermSavingInterest-data.totalTermPayment
+    console.log(data)
+    res.render('vwAdmin/statistics', {
+        data:data,
+        totalInBank:totalInBank,
+        totalInterest:totalInterest,
+        layout: 'admin'
+    });
 });
 
 // User router

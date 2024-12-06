@@ -39,6 +39,12 @@
             border-radius: 20px; /* Bo góc */
         }
 
+        .sidebar .nav-link.active {
+            background-color: #007bff; /* Màu nền khi active */
+            border: 2px solid white;
+            color: white;
+        }
+
         /* Main Content */
         .main-content {
             margin-left: 300px;
@@ -103,9 +109,9 @@
         .detail-link:hover {
             text-decoration: underline;
         }
-        
+
         .mt-6 {
-        margin-top: 6rem;
+            margin-top: 6rem;
         }
 
         .btnImg{
@@ -123,7 +129,7 @@
         <h2>EASTSEABANK</h2>
         <nav class="nav flex-column">
             <a class="nav-link mb-1" href="/admin">
-                <img class="btnImg" src="../../images/adminlogo.png">
+                <img class="btnImg" src="../../images/manageUser.png">
                 Quản lý khách hàng
             </a>
             <a class="nav-link mb-1" href="/admin/Loans">
@@ -153,7 +159,7 @@
             <div class="d-flex align-items-center">
                 <h3 class="align-items-center pr-1">Lê Văn Việt Hoàng</h3>
                 <div class="dropdown">
-                    <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/449478251_1173876137068788_741653404895312364_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeE06zQ5x7QJi_bmneJwpmlpS_opxWbQkZFL-inFZtCRkRpNLSXnHIlSdSRDfyWSZNKac-wbcvnQB9LgVnK7lV52&_nc_ohc=r0vszuSQcWgQ7kNvgF7GNQ-&_nc_zt=23&_nc_ht=scontent.fsgn2-6.fna&_nc_gid=AXM6s_i3VZ9W6Qj5xLjF-uU&oh=00_AYD9cmgTARkP3nI5uhrYw6cB25D6y6X-PtGp0M3zcnf6_A&oe=673F6C02" alt="User Avatar" class="avatar dropdown-toggle" id="avatarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="../../images/adminlogo.png" alt="User Avatar" class="avatar dropdown-toggle" id="avatarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="avatarDropdown">
                         <a class="dropdown-item" href="#">Xem Profile</a>
                         <a class="dropdown-item" href="#">Xem Trang Chủ</a>
@@ -169,5 +175,34 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
+
+    <script>
+    // Lấy tất cả các liên kết trong sidebar
+    const links = document.querySelectorAll('.sidebar .nav-link');
+    // Lặp qua tất cả các liên kết và gắn sự kiện click
+    links.forEach(link => {
+        link.addEventListener('click', function () {
+            // Xóa class 'active' khỏi tất cả các liên kết
+            links.forEach(l => l.classList.remove('active'));
+
+            // Thêm class 'active' vào liên kết đang được nhấn
+            this.classList.add('active');
+
+            // Lưu lại trang hiện tại vào localStorage để duy trì trạng thái khi tải lại trang
+            localStorage.setItem('currentPage', this.href);
+        });
+    });
+
+    // Gắn lại class 'active' nếu trang đã được lưu trong localStorage
+    const currentPage = localStorage.getItem('currentPage');
+    if (currentPage) {
+        links.forEach(link => {
+            if (link.href === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }
+</script>
+
 </body>
 </html>

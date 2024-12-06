@@ -5,6 +5,7 @@ const router= express.Router()
 
 router.get('/',async (req, res) => {
     const list=await userServices.GetAllCustomer();
+    console.log(list)
     res.render('vwAdmin/manageUsers',{
       list: list,
       layout: 'admin'
@@ -46,12 +47,34 @@ router.get('/User', async (req, res) => {
         }
 
         const data = await userServices.findByMa_KH(Ma_KH); // Truyền Ma_KH vào hàm
+        const totalSoDu = (await userServices.getTotalSoDu(Ma_KH) || { totalSoDu: 0 }).totalSoDu;
+        const totalTienGuiTietKiem = (await userServices.getTotalTienGuiTietKiem(Ma_KH) || { totalTienGui: 0 }).totalTienGui;
+        const totalTienVay = (await userServices.getTotalTienVay(Ma_KH) || { totalTienVay: 0 }).totalTienVay;
+        const total= totalSoDu+totalTienGuiTietKiem-totalTienVay;
+        const listAccount = await userServices.getListAccounts(Ma_KH);
+        const listSavings = await userServices.getListSavings(Ma_KH);
+        const listLoans = await userServices.getListLoans(Ma_KH);
+        // console.log(totalSoDu)
+        // console.log(totalTienGuiTietKiem)
+        // console.log(totalTienVay)
+        // console.log(total)
+        console.log(data)
+        // console.log(listAccount)
+        // console.log(listSavings)
+        // console.log(listLoans)
         if (!data) {
             return res.status(404).send('Khách hàng không tồn tại');
         }
 
         res.render('vwAdmin/customerInfor', {
             data: data,
+            totalSoDu:totalSoDu,
+            totalTienVay:totalTienVay,
+            totalTienGuiTietKiem:totalTienGuiTietKiem,
+            listAccount:listAccount,
+            listSavings:listSavings,
+            listLoans:listLoans,
+            total:total,
             layout: 'admin',
         });
     } catch (err) {
