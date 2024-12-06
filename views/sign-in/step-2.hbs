@@ -1,169 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In Step 1 </title>
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-            crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/public/css/homeLoginRegister.css">
     <link rel="stylesheet" href="/public/css/login.css">
     <link rel="stylesheet" href="/public/css/checkbox.css">
 </head>
+
 <body style="margin: 0px; background-color: #201E43">
-<div class="container">
-    <div id="data-container" data-user-created="{{userCreated}}" data-phone-number="{{phoneNumber}}"
-         data-password="{{password}}"></div>
-    <p class="container__title mt-5">Thông tin đăng ký tài khoản </p>
-    <form style="display: flex; justify-content: center" method="post" id="register" action="">
-        <div class="container__form mb-5">
-            <p class="container__guide">(*)Vui lòng điền đúng thông tin cá nhân của bạn trên giấy tờ tùy thân</p>
-            <div class="form-group">
-                <label class="container__form__label " for="cccd">CCCD</label>
-                <input class="container__form__input " value="" type="text" id="cccd" name="cccd" required>
-            </div>
-            <div class="form-group">
-                <label class="container__form__label" for="issuedDate">Ngày cấp</label>
-                <input class="container__form__input" value="" type="text" id="issuedDate"
-                       placeholder="yyyy-mm-dd"
-                       name="issuedDate" required>
-            </div>
-            <div class="form-group">
-                <label class="container__form__label" for="issuedAddress">Nơi cấp</label>
-                <input class="container__form__input  " value="" type="text" id="issuedAddress"
-                       name="issuedAddress" required>
-            </div>
-            <div class="form-group">
-                <label label class="container__form__label" for="dob">Ngày tháng năm sinh</label>
-                <input class="container__form__input" type="text" id="dob" value="" placeholder="yyyy-mm-dd"
-                       name="dob" required>
-            </div>
-            <div class="form-group">
-                <label class="container__form__label" for="sex">Giới tính</label>
-                <select class="container__form__input" id="sex" name="sex">
-                    <option value="male">Nam</option>
-                    <option value="female">Nu</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="container__form__label" for="nationality">Quốc tịch</label>
-                <input class="container__form__input" type="text" id="nationality"
-                       name="nationality" required value="">
-            </div>
-            <div class="form-group">
-                <label class="container__form__label" for="homeTown">Quê quán</label>
-                <input class="container__form__input" type="text" id="homeTown"
-                       name="homeTown" required value="">
-            </div>
-            <div class="form-group">
-                <label class="container__form__label" for="contemptAddress">Địa chỉ thường trú</label>
-                <input class="container__form__input" type="text" id="contemptAddress"
-                       name="contemptAddress" required value="">
-            </div>
-            <div class="form-group">
-                <label class="container__form__label" for="contactAddress">Địa chỉ liên hệ</label>
-                <input class="container__form__input" type="text" id="contactAddress"
-                       name="contactAddress" required value="">
-            </div>
-            <div class="form-group">
-                <label class="container__form__label " for="contactAddress">Email</label>
-                <input class="container__form__input" type="text" id="email"
-                       name="email" required value="">
-            </div>
-            <div class="form-group">
-                <label class="container__form__label" for="contactAddress">Mặt trước CCCD</label>
-                <br>
-                <button type="button" class="container__form__button button--send-image">
-                </button>
-            </div>
-            <div class="form-group">
-                <label class="container__form__label" for="contactAddress">Mặt sau CCCD</label>
-                <br>
-                <button type="button" class="container__form__button button--send-image">
-                </button>
-            </div>
-            <div class="form-group">
-                <input type="hidden" id="phoneNumber" name="phoneNumber" value="{{this.userInfo.phoneNumber}}">
-            </div>
-            <div class="form-group">
-                <input type="hidden" name="fullName" value="{{this.userInfo.fullName}}">
-
-            </div>
-            <div class="container__form__policy">
-                <div class="round">
-                    <input type="checkbox" checked id="checkbox"/>
-                    <label for="checkbox"></label>
+    <div class="container">
+        <div id="data-container" data-user-created="{{userCreated}}" data-phone-number="{{phoneNumber}}"
+            data-password="{{password}}"></div>
+        <p class="container__title mt-5">Thông tin đăng ký tài khoản </p>
+        <form style="display: flex; justify-content: center" method="post" id="register" action="">
+            <div class="container__form mb-5">
+                <p class="container__guide">(*)Vui lòng điền đúng thông tin cá nhân của bạn trên giấy tờ tùy thân</p>
+                <div class="form-group">
+                    <label class="container__form__label " for="cccd">CCCD</label>
+                    <input class="container__form__input " value="" type="text" id="cccd" name="cccd" required>
                 </div>
-                <!--                <img src="images/checklist.png" style="width: 25px; height: 25px">-->
-                <p style="text-align: left; margin-left: 20px; color: #ffffff">Tôi đồng ý với các <a href="#">điều khoản</a> và <a
-                        href="#">chính sách</a> của ngân hàng</p>
+                <div class="form-group">
+                    <label class="container__form__label" for="issuedDate">Ngày cấp</label>
+                    <input class="container__form__input" value="" type="text" id="issuedDate" placeholder="yyyy-mm-dd"
+                        name="issuedDate" required>
+                </div>
+                <div class="form-group">
+                    <label class="container__form__label" for="issuedAddress">Nơi cấp</label>
+                    <input class="container__form__input  " value="" type="text" id="issuedAddress" name="issuedAddress"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label label class="container__form__label" for="dob">Ngày tháng năm sinh</label>
+                    <input class="container__form__input" type="text" id="dob" value="" placeholder="yyyy-mm-dd"
+                        name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label class="container__form__label" for="sex">Giới tính</label>
+                    <select class="container__form__input" id="sex" name="sex">
+                        <option value="male">Nam</option>
+                        <option value="female">Nu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="container__form__label" for="nationality">Quốc tịch</label>
+                    <input class="container__form__input" type="text" id="nationality" name="nationality" required
+                        value="">
+                </div>
+                <div class="form-group">
+                    <label class="container__form__label" for="homeTown">Quê quán</label>
+                    <input class="container__form__input" type="text" id="homeTown" name="homeTown" required value="">
+                </div>
+                <div class="form-group">
+                    <label class="container__form__label" for="contemptAddress">Địa chỉ thường trú</label>
+                    <input class="container__form__input" type="text" id="contemptAddress" name="contemptAddress"
+                        required value="">
+                </div>
+                <div class="form-group">
+                    <label class="container__form__label" for="contactAddress">Địa chỉ liên hệ</label>
+                    <input class="container__form__input" type="text" id="contactAddress" name="contactAddress" required
+                        value="">
+                </div>
+                <div class="form-group">
+                    <label class="container__form__label " for="contactAddress">Email</label>
+                    <input class="container__form__input" type="text" id="email" name="email" required value="">
+                </div>
+                <div class="form-group">
+                    <label class="container__form__label" for="contactAddress">Mặt trước CCCD</label>
+                    <br>
+                    <button class="container__form__button button--send-image">
+                    </button>
+                </div>
+                <div class="form-group">
+                    <label class="container__form__label" for="contactAddress">Mặt sau CCCD</label>
+                    <br>
+                    <button class="container__form__button button--send-image">
+                    </button>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" id="phoneNumber" name="phoneNumber" value="{{this.userInfo.phoneNumber}}">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="fullName" value="{{this.userInfo.fullName}}">
+
+                </div>
+                <div class="container__form__policy">
+                    <div class="round">
+                        <input type="checkbox" checked id="checkbox" />
+                        <label for="checkbox"></label>
+                    </div>
+                    <!--                <img src="images/checklist.png" style="width: 25px; height: 25px">-->
+                    <p style="text-align: left; margin-left: 20px; color: #ffffff">Tôi đồng ý với các <a href="#">điều
+                            khoản</a> và <a href="#">chính sách</a> của ngân hàng</p>
+                </div>
+                <button class="container__form__button button--login" type="submit">
+                    Xác nhận
+                </button>
+
             </div>
-            <button class="container__form__button button--login" type="submit">
-                Xác nhận
-            </button>
+        </form>
 
-        </div>
-    </form>
-
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script
-        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"
-></script>
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
-        crossorigin="anonymous"
-></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-    $('#register').on('submit', function (e) {
-        e.preventDefault();
-        const cccd = $('#cccd').val();
-        const phoneNumber = $('#phoneNumber').val();
-        //Code này kiểm tra cccd/phoneNumber đã tồn tại chưa,
-        //Muốn kỹ hơn có thể thêm mấy hàm kiểm tra
-        $.getJSON(`/account/is-available?cccd=${cccd}&phoneNumber=${phoneNumber}`, function (data) {
-            if (data === false) {
-                Swal.fire
-                ({
-                    title: 'Error!',
-                    text: 'CCCD/Phone number already existed',
-                    icon: 'error',
-                })
-                return;
-            }
-            console.log(data);
-            return $('#register').off('submit').submit();
+    <script>
+        $('#register').on('submit', function (e) {
+            e.preventDefault();
+            const cccd = $('#cccd').val();
+            const phoneNumber = $('#phoneNumber').val();
+            //Code này kiểm tra cccd/phoneNumber đã tồn tại chưa,
+            //Muốn kỹ hơn có thể thêm mấy hàm kiểm tra
+            $.getJSON(`/account/is-available?cccd=${cccd}&phoneNumber=${phoneNumber}`, function (data) {
+                if (data === false) {
+                    Swal.fire
+                        ({
+                            title: 'Error!',
+                            text: 'CCCD/Phone number already existed',
+                            icon: 'error',
+                        })
+                    return;
+                }
+                console.log(data);
+                return $('#register').off('submit').submit();
+            });
         });
-    });
-</script>
-<script>
-    const dataContainer = document.getElementById('data-container');
-    const userCreated = dataContainer.getAttribute('data-user-created') === 'true';
-    const phoneNumber = dataContainer.getAttribute('data-phone-number');
-    const password = dataContainer.getAttribute('data-password');
-    if (userCreated) {
-        Swal.fire({
-            title: 'User created successfully',
-            html: `Your account's phone number is: ${phoneNumber} <br>
+    </script>
+    <script>
+        const dataContainer = document.getElementById('data-container');
+        const userCreated = dataContainer.getAttribute('data-user-created') === true;
+        const phoneNumber = dataContainer.getAttribute('data-phone-number');
+        const password = dataContainer.getAttribute('data-password');
+        if (userCreated) {
+            Swal.fire({
+                title: 'User created successfully',
+                html: `Your account's phone number is: ${phoneNumber} <br>
             Your account's password: ${password}`,
-            icon: 'success'
-        }).then(() => {
-            // Điều hướng sau khi thông báo được đóng
-            window.location.href = '/login'; // Thay URL ở đây
-        });
-    }
-</script>
+                icon: 'success'
+            })
+        }
+    </script>
 </body>
+
 </html>
