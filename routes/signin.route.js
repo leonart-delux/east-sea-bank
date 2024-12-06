@@ -56,7 +56,12 @@ router.post('/step-2', async function (req, res) {
     console.log(user);
     console.log(req.body.phoneNumber);
     const ret = await userService.addUserInfo(user);
-    res.redirect('/login')
+    res.render('sign-in/step-2', {
+        layout: false,
+        userCreated: true,
+        password: random_generated_string,
+        phoneNumber: req.body.phoneNumber,
+    });
 });
 
 // Sign in routing - step 3
