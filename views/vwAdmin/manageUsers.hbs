@@ -3,7 +3,7 @@
     <h3>Danh sách khách hàng</h3>
     <!-- Thanh tìm kiếm và các nút -->
     <div class="d-flex justify-content-between mb-3">
-        <form action="./search" method="GET" class="input-group" style="width: 300px;">
+        <form action="/admin/search" method="GET" class="input-group" style="width: 300px;">
             <input type="text" name="text" class="form-control" placeholder="Tìm kiếm thông tin...">
             <div class="input-group-append">
                 <button class="btn btn-primary" type="submit">Tìm kiếm</button>
@@ -27,8 +27,8 @@
                 <td>{{Ma_KH}}</td>
                 <td>{{Ho_Ten}}</td>
                 <td>{{SDT}}</td>
-                <td>{{So_Du}}</td>
-                <td><a href="./User?Ma_KH={{Ma_KH}}" class="detail-link">Chi tiết</a></td>
+                <td>{{formatNumber Tong_So_Du}}</td>
+                <td><a href="../admin/User?Ma_KH={{Ma_KH}}" class="detail-link">Chi tiết</a></td>
             </tr>   
             {{/each}}
         </tbody>

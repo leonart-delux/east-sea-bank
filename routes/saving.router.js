@@ -14,5 +14,12 @@ router.get('/Savings',async (req, res) => {
         layout: 'admin'
     });
 });
-
+router.get('/Savings/details',async (req, res) => {
+    const Ma_Vi = parseInt(req.query.Ma_Vi || 0);
+    const data = await SavingServices.getDetails(Ma_Vi)
+    res.render('vwAdmin/savingInfor', {
+        data:data,
+        layout: 'admin'
+    });
+});
 export default router

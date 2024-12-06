@@ -3,7 +3,7 @@ export default{
     // Không kỳ hạn
     async getNonTermInterest() {
         return await db('goi_tiet_kiem')
-            .where('Ma_Goi', 3)
+            .where('Ma_Goi', 1)
             .select('Lai_Suat')
             .first();
     },
@@ -11,7 +11,7 @@ export default{
     // Có kỳ hạn
     async getTermInterest() {
         return await db('goi_tiet_kiem')
-            .whereNot('Ma_Goi', 3) //Ma_Goi = 3
+            .whereNot('Ma_Goi', 1)
             .orderBy('Thoi_Gian_Ky_Han', 'asc')
             .select('*');
     },

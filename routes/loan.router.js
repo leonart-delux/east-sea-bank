@@ -3,7 +3,7 @@ import loanServices from '../services/loan.services.js';
 
 const router= express.Router()
 
-router.get('/admin/Loans',async (req, res) => {
+router.get('/Loans',async (req, res) => {
     const Completed= await loanServices.getCompletedLoans();
     const Due= await loanServices.getDueLoans();
     const OverDue= await loanServices.getOverdueLoans();
@@ -14,6 +14,15 @@ router.get('/admin/Loans',async (req, res) => {
         Completed:Completed,
         Due:Due,
         Overdue:OverDue,
+        layout: 'admin'
+    });
+  });
+  router.get('/Loans/details',async (req, res) => {
+    const Ma_Vay = parseInt(req.query.Ma_Vay || 0);
+    const data = await loanServices.getDetails(Ma_Vay)
+    console.log(data)
+    res.render('vwAdmin/loanInfor', {
+        data:data,
         layout: 'admin'
     });
   });
