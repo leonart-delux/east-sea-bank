@@ -1,0 +1,67 @@
+<div class="container mt-6">
+    <div class="card">
+        <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Thông tin khách hàng : <strong>{{data.Ho_Ten}}</strong></h5>
+            <a href="javascript:window.history.back();" class="btn btn-link">Quay lại</a>
+        </div>
+        <div class="card-body">
+            <h6 class="mb-3"><strong>Thông tin cá nhân của khách hàng</strong></h6>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Số CCCD:</strong> {{data.CCCD}}</p>
+                    <p><strong>Email:</strong> {{data.Email}}</p>
+                    <p><strong>Số điện thoại:</strong> {{data.SDT}}</p>
+                    <p><strong>Địa chỉ thường trú:</strong> {{data.Dia_Chi_Thuong_Tru}}</p>
+                    <p><strong>Địa chỉ liên hệ:</strong> {{data.Dia_Chi_Lien_He}}</p>
+                </div>
+            </div>
+
+            <h6 class="mb-3"><strong>Tổng số dư của tất cả tài khoản</strong></h6>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Số dư tổng cộng:</strong> {{formatNumber totalSoDu}}</p>
+                    <p><strong>Số dư sổ tiết kiệm:</strong> {{formatNumber totalTienGuiTietKiem}}</p>
+                    <p><strong>Số tiền đang vay:</strong> {{formatNumber totalTienVay}}</p>
+                    <p><strong>Tổng: {{formatNumber total}}</p></strong>
+                </div>
+            </div>
+
+            <h6 class="mb-3"><strong>Danh sách tài khoản của khách hàng</strong></h6>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{#each listAccount}}
+                    <p>Số tài khoản: {{So_Tai_Khoan}} - Số dư: {{formatNumber So_Du}}</p>
+                    {{/each}}
+                </div>
+            </div>
+
+            <h6 class="mb-3"><strong>Danh sách sổ tiết kiệm</strong></h6>
+            <div class="row">
+                <div class="col-md-6">
+                    <table>
+                    {{#each listSavings}}
+                        <tr>
+                            <td>{{So_Tai_Khoan}} - Số tiền: {{formatNumber Tien_Goc}} VNĐ</td>
+                            <td><a href="/admin/Savings/details?Ma_Vi={{Ma_Vi}}">Chi tiết</a></td>
+                        </tr>
+                    {{/each}}
+                    </table>
+                </div>
+            </div>
+
+            <h6 class="mb-3"><strong>Danh sách khoản vay</strong></h6>
+            <div class="row">
+                <div class="col-md-6">
+                    <table>
+                    {{#each listLoans}}
+                        <tr>
+                            <td>{{So_Tai_Khoan}} - Số tiền vay: {{Khoan_Vay}} VNĐ</td>
+                            <td><a href="/admin/loans/details?Ma_Vay={{Ma_Vay}}">Chi tiết</a></td>
+                        </tr>
+                    {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

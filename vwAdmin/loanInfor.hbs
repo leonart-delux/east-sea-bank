@@ -1,0 +1,33 @@
+<div class="container mt-6">
+    <div class="card">
+        <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Thông tin vay của khách hàng : <strong>{{data.Ho_Ten}}</strong></h5>
+            <a href="javascript:window.history.back();" class="btn btn-link">Quay lại</a>
+        </div>
+        <div class="card-body">
+            <h6 class="mb-3"><strong>Thông tin cá nhân của khách hàng</strong></h6>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Số CCCD:</strong> {{data.CCCD}}</p>
+                    <p><strong>Email:</strong> {{data.Email}}</p>
+                    <p><strong>Số điện thoại:</strong> {{data.SDT}}</p>
+                    <p><strong>Địa chỉ thường trú:</strong> {{data.dia_chi_thuong_tru}}</p>
+                    <p><strong>Địa chỉ liên hệ:</strong> {{data.dia_chi_lien_he}}</p>
+                </div>
+            </div>
+            <br>
+            <h6 class="mb-3"><strong>Thông tin ví tiết kiệm</strong></h6>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Số tài khoản:</strong> {{data.So_Tai_Khoan}}</p>
+                    <p><strong>số tiền vay:</strong> {{formatNumber data.Khoan_Vay}}</p>
+                    <p><strong>lãi suất vay:</strong> {{data.Lai_Suat}}%</p>
+                    <p><strong>Kỳ hạn:</strong> {{data.Ky_Han}} tháng</p>
+                    <p><strong>Ngày vay:</strong> {{data.Ngay_Bat_Dau}}</p>
+                    <p><strong>Hạn hết hạn:</strong> {{data.Ngay_Het_Han}}</p>
+                    <p><strong>Số tiền đã trả:</strong> {{formatNumber data.So_Tien_Da_Tra}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
