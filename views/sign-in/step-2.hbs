@@ -142,7 +142,7 @@
     </script>
     <script>
         const dataContainer = document.getElementById('data-container');
-        const userCreated = dataContainer.getAttribute('data-user-created') === true;
+        const userCreated = dataContainer.getAttribute('data-user-created') === 'true';
         const phoneNumber = dataContainer.getAttribute('data-phone-number');
         const password = dataContainer.getAttribute('data-password');
         if (userCreated) {
@@ -151,7 +151,10 @@
                 html: `Your account's phone number is: ${phoneNumber} <br>
             Your account's password: ${password}`,
                 icon: 'success'
-            })
+            }).then(() => {
+                // Điều hướng sau khi thông báo được đóng
+                window.location.href = '/login'; // Thay URL ở đây
+            });
         }
     </script>
 </body>
